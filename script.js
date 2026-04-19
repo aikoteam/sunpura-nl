@@ -149,6 +149,7 @@ function openOrderPopup() {
       if (result.success) {
         form.style.display = 'none';
         document.getElementById('orderSuccess').style.display = 'block';
+        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Aanvraag verzenden →';
