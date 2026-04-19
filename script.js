@@ -28,16 +28,9 @@ function updateConfigTotal() {
   const el = document.getElementById('configTotal');
   if (el) el.textContent = fmtPrice(total);
 
-  const priceNew  = document.getElementById('configPriceNew');
-  const priceOld  = document.getElementById('configPriceOld');
-  const discount  = document.getElementById('configDiscount');
-  const prodName  = document.getElementById('configProductName');
+  const priceNew = document.getElementById('configPriceNew');
+  const prodName = document.getElementById('configProductName');
   if (priceNew) priceNew.textContent = fmtPrice(configState.price);
-  if (priceOld) priceOld.textContent = fmtPrice(configState.oldPrice);
-  if (discount) {
-    const pct = Math.round((configState.oldPrice - configState.price) / configState.oldPrice * 100);
-    discount.textContent = '−' + pct + '%';
-  }
   if (prodName) prodName.textContent = 'Sunpura S2400 ' + configState.name.replace('S2400 ', '') + ' · ' + configState.kwh + ' kWh';
 }
 
@@ -194,6 +187,31 @@ function openOrderPopup() {
   }
 
   setInterval(() => goTo(current + 1), 4000);
+})();
+
+// Hero rotating phrases
+(function() {
+  const phrases = ['voor zonnepanelen', 'op dynamisch tarief', 'met noodstroom'];
+  const subs = [
+    'Heb je zonnepanelen? Sla het overschot op in plaats van terug te leveren — zo vermijd je terugleverkosten en gebruik je maximaal je eigen stroom.',
+    'Laad op wanneer stroom goedkoop is en gebruik je opgeslagen energie als de prijs stijgt. Werkt met elk dynamisch contract.',
+    'Bij stroomuitval schakelt de S2400 automatisch over en houdt je essentiële apparaten — koelkast, router, medische apparatuur — aan de stroom.'
+  ];
+  let idx = 0;
+  const el = document.getElementById('heroRotating');
+  const sub = document.getElementById('heroSub');
+  if (!el) return;
+  setInterval(function() {
+    el.classList.add('fade');
+    if (sub) sub.classList.add('fade');
+    setTimeout(function() {
+      idx = (idx + 1) % phrases.length;
+      el.textContent = phrases[idx];
+      if (sub) sub.textContent = subs[idx];
+      el.classList.remove('fade');
+      if (sub) sub.classList.remove('fade');
+    }, 350);
+  }, 5000);
 })();
 
 // Smooth scroll for nav links

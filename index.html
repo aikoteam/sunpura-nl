@@ -56,25 +56,25 @@
     <div class="hero-visual">
       <span class="config-popular-badge" id="popularBadge">★ Meest gekozen</span>
       <img id="configImg" src="images/product-2-4kwh.png" alt="Sunpura S2400 2,4 kWh">
+      <img src="images/eupd-2025.png" alt="EUPD Research Top Innovation 2025" class="eupd-badge">
     </div>
 
     <!-- RIGHT: text + configurator -->
     <div class="hero-content">
       <div class="hero-text">
         <div class="hero-badge">Voorbestelling open · Limburg</div>
-        <h1>Plug & play <em>thuisbatterij</em><br>voor zonnepanelen</h1>
-        <p class="hero-sub">Slimme AI-sturing, persoonlijke service in Limburg. Wij leveren aan huis, installeren en leggen alles uit — geen pakket uit het buitenland.</p>
+        <h1>Plug & play <em>thuisbatterij</em><br><span id="heroRotating">voor zonnepanelen</span></h1>
+        <p class="hero-sub" id="heroSub">Heb je zonnepanelen? Sla het overschot op in plaats van terug te leveren — zo vermijd je terugleverkosten en gebruik je maximaal je eigen stroom.</p>
       </div>
 
       <!-- CONFIGURATOR -->
       <div class="configurator-card">
 
-        <div class="config-section" style="padding-bottom:14px; border-bottom:1px solid var(--border);">
+        <div class="config-section" style="padding-bottom:20px; border-bottom:1px solid var(--border);">
           <div style="font-size:12px; color:var(--muted); margin-bottom:6px; font-family:var(--mono); letter-spacing:.04em; text-transform:uppercase;" id="configProductName">Sunpura S2400 Basis · 2,4 kWh</div>
           <div class="config-price-display">
             <span class="config-price-new" id="configPriceNew">€967</span>
-            <span class="config-price-old" id="configPriceOld">€1.404</span>
-            <span class="config-price-discount" id="configDiscount">−31%</span>
+            <span class="config-price-tag">Noodstroom inbegrepen</span>
           </div>
           <div style="font-size:11px; color:var(--muted);">Basisprijs incl. 21% BTW · service optioneel</div>
         </div>
@@ -182,14 +182,6 @@
     <div class="gallery-slider" id="gallerySlider">
 
       <div class="gallery-slide active">
-        <img src="images/s2400-interior.jpg" alt="Sunpura S2400 in keuken interieur">
-        <div class="gallery-caption">
-          <div class="gallery-caption-label">Binnen plaatsing</div>
-          <div class="gallery-caption-text">Compact genoeg voor in de woonkamer of keuken</div>
-        </div>
-      </div>
-
-      <div class="gallery-slide">
         <img src="images/s2400-exterior.jpg" alt="Sunpura S2400 buiten aan woning">
         <div class="gallery-caption">
           <div class="gallery-caption-label">Buiten plaatsing</div>
@@ -240,7 +232,7 @@
   <div class="container">
     <div class="section-label">Waarom de S2400</div>
     <h2 class="section-title">Jouw zonnepanelen, eindelijk volledig benut</h2>
-    <p class="section-sub">Heb je al zonnepanelen met een netinverter? Dan is de S2400 de slimste aanvulling. Het salderingsstelsel verdwijnt eind 2027 — wie nu opslag toevoegt, vermindert al de terugleveringkosten en is klaar voor wat komt.</p>
+    <p class="section-sub">Heb je zonnepanelen? Dan sla je het overschot op in plaats van terug te leveren — en ben je klaar voor het einde van de salderingsregeling in 2027. Geen panelen? Dan laad je goedkoop op van het net en gebruik je eigen stroom als de prijs hoog is. En bij stroomuitval houdt de S2400 je essentiële apparaten aan de stroom.</p>
 
     <div class="why-grid">
       <div class="why-card">
@@ -252,24 +244,24 @@
       </div>
       <div class="why-card">
         <div class="why-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18.36 6.64a9 9 0 1 1-12.73 0"/><line x1="12" y1="2" x2="12" y2="12"/></svg>
         </div>
-        <div class="why-title">LiFePO₄ — brandveilig</div>
-        <div class="why-text">De veiligste lithium-chemie. Geen thermische runaway, stabiel bij hoge temperaturen, IP65 voor binnen én buiten.</div>
+        <div class="why-title">Noodstroom — ingebouwd, gratis</div>
+        <div class="why-text">Bij stroomuitval schakelt de S2400 binnen milliseconden over. De aparte noodstroomuitgang op het apparaat houdt je essentiële apparaten aan — bij anderen kost dit €975 extra.</div>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
         </div>
         <div class="why-title">8.000 cycli · 10 jaar garantie</div>
-        <div class="why-text">Bij dagelijks gebruik gaat de batterij meer dan 20 jaar mee. 10 jaar fabrieksgarantie op alle componenten.</div>
+        <div class="why-text">Bij dagelijks gebruik gaat de batterij meer dan 20 jaar mee. 10 jaar fabrieksgarantie van Sunpura — meer dan de meeste aanbieders geven.</div>
       </div>
       <div class="why-card">
         <div class="why-icon">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
         </div>
         <div class="why-title">AI-sturing op dynamische tarieven</div>
-        <div class="why-text">Laadt automatisch wanneer stroom goedkoop is, ontlaadt bij hoge tarieven. Werkt met Tibber, HomeWizard en meer.</div>
+        <div class="why-text">Laadt automatisch wanneer stroom goedkoop is, ontlaadt bij hoge tarieven. Werkt met én zonder zonnepanelen — via het stopcontact of via de P1-meter.</div>
       </div>
       <div class="why-card">
         <div class="why-icon">
@@ -347,7 +339,7 @@
           <div class="row"><span class="key">Temperatuurbereik</span><span class="val">-20°C tot +55°C</span></div>
           <div class="row"><span class="key">Gewicht (module)</span><span class="val">28,1 kg</span></div>
           <div class="row"><span class="key">Afmetingen (B×H×D)</span><span class="val">450×255×273 mm</span></div>
-          <div class="row"><span class="key">Connectiviteit</span><span class="val">WiFi + Bluetooth</span></div>
+          <div class="row"><span class="key">Connectiviteit</span><span class="val">WiFi (Bluetooth voor installatie)</span></div>
         </div>
       </div>
 
@@ -582,7 +574,7 @@
           Kan ik later uitbreiden met extra modules?
           <span class="faq-icon">+</span>
         </button>
-        <div class="faq-a">Ja. De B2400-modules stapel je eenvoudig op elkaar zonder extra bekabeling tussen omvormer en accu. Je kunt uitbreiden van 2,4 naar maximaal 9,6 kWh. Losse modules zijn beschikbaar voor €499 incl. BTW.</div>
+        <div class="faq-a">Ja. De B2400-modules stapel je eenvoudig op elkaar zonder extra bekabeling tussen omvormer en accu. Je kunt uitbreiden van 2,4 naar maximaal 9,6 kWh. Losse modules zijn beschikbaar voor €551 incl. BTW.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
