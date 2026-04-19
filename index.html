@@ -68,7 +68,7 @@
       </div>
 
       <!-- CONFIGURATOR -->
-      <div class="configurator-card">
+      <div class="configurator-card" id="configurator">
 
         <div class="config-section" style="padding-bottom:20px; border-bottom:1px solid var(--border);">
           <div style="font-size:12px; color:var(--muted); margin-bottom:6px; font-family:var(--mono); letter-spacing:.04em; text-transform:uppercase;" id="configProductName">Sunpura S2400 Basis · 2,4 kWh</div>
@@ -471,8 +471,8 @@
       </div>
 
       <div class="acc-card">
-        <div class="acc-img" style="padding: 24px;">
-          <img src="images/sunpura-smart-home.jpg" alt="Smart Home integraties" style="max-height: 180px; border-radius: 8px;">
+        <div class="acc-img acc-img--cover">
+          <img src="images/sunpura-smart-home.jpg" alt="Smart Home integraties">
         </div>
         <div class="acc-body">
           <div class="acc-tag">Gratis — inbegrepen</div>
@@ -486,7 +486,7 @@
 
     <p style="text-align:center; margin-top:28px; font-size:14px; color:var(--grey);">
       Accessoires selecteer je eenvoudig bij de aanvraag. &nbsp;
-      <a href="#" onclick="openOrderPopup(); return false;" style="color:var(--green); font-weight:600; text-decoration:none;">Configureer jouw systeem →</a>
+      <a href="#configurator" style="color:var(--green); font-weight:600; text-decoration:none;">Configureer jouw systeem →</a>
     </p>
   </div>
 </section>
@@ -809,8 +809,10 @@
         <div style="margin-top:20px; padding:12px; background:rgba(255,255,255,.05); border-radius:8px; font-size:12px; line-height:1.7; opacity:.75;">
           ✅ Gratis levering in Limburg<br>
           ✅ 14 dagen bedenktijd<br>
-          ✅ 10 jaar garantie via Sunpura<br>
-          ✅ KvK 89552199 · BTW NL004741042B25
+          ✅ 10 jaar garantie via Sunpura
+        </div>
+        <div style="margin-top:14px; font-size:12px; opacity:.55; text-align:center;">
+          <a href="#configurator" onclick="closeModalAndScroll('modal-order','configurator'); return false;" style="color:rgba(255,255,255,.7); text-decoration:underline;">← Wijzig configuratie</a>
         </div>
       </div>
 

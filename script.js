@@ -272,6 +272,14 @@ function closeModal(id) {
   document.body.style.overflow = '';
 }
 
+function closeModalAndScroll(modalId, targetId) {
+  closeModal(modalId);
+  setTimeout(function() {
+    const el = document.getElementById(targetId);
+    if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, 150);
+}
+
 document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
   overlay.addEventListener('click', function(e) {
     if (e.target === overlay) closeModal(overlay.id);
