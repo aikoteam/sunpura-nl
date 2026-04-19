@@ -12,6 +12,7 @@
   --radius: 12px;
   --mono: 'DM Mono', monospace;
   --sans: 'DM Sans', sans-serif;
+  --muted: #8a9b90;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -246,13 +247,20 @@ nav {
   position: sticky;
   top: 0;
   height: 92vh;
-  background: var(--light);
-  border-right: 1px solid var(--border);
+  background: var(--dark);
+  border-right: none;
   display: flex;
   align-items: flex-end;
   justify-content: center;
   padding: 40px 32px 0;
   overflow: hidden;
+}
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(34,162,97,0.14) 0%, transparent 65%);
+  pointer-events: none;
 }
 #configImg {
   max-height: 84vh;
@@ -260,13 +268,16 @@ nav {
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 20px 48px rgba(0,0,0,0.14));
-  transition: opacity 0.25s ease;
+  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.65));
+  transition: opacity 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 .hero-visual .config-popular-badge {
   position: absolute;
   top: 20px;
   left: 20px;
+  z-index: 2;
 }
 
 /* PRICE DISPLAY */
@@ -428,7 +439,9 @@ section { padding: 80px 2rem; }
   border: 1px solid var(--border);
   border-radius: var(--radius);
   background: var(--white);
-  transition: border-color 0.2s, box-shadow 0.2s;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s, box-shadow 0.2s;
 }
 
 .why-card:hover {
@@ -468,7 +481,9 @@ section { padding: 80px 2rem; }
   border-radius: 16px;
   padding: 28px 24px;
   position: relative;
-  transition: all 0.2s;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s, box-shadow 0.2s;
   display: flex;
   flex-direction: column;
 }
@@ -591,7 +606,9 @@ section { padding: 80px 2rem; }
   border-radius: 16px;
   padding: 28px;
   background: var(--white);
-  transition: all 0.2s;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, border-color 0.2s, box-shadow 0.2s;
 }
 
 .service-card:hover {
@@ -670,7 +687,7 @@ section { padding: 80px 2rem; }
   z-index: 0;
 }
 
-.step { text-align: center; padding: 0 16px; position: relative; z-index: 1; }
+.step { text-align: center; padding: 0 16px; position: relative; z-index: 1; opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
 
 .step-number {
   width: 40px;
@@ -731,6 +748,9 @@ section { padding: 80px 2rem; }
   background: rgba(255,255,255,0.05);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: 8px;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
 }
 
 .cert-icon {
@@ -1102,7 +1122,9 @@ footer {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  transition: box-shadow 0.2s;
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.2s;
 }
 
 .acc-card:hover { box-shadow: 0 8px 32px rgba(0,0,0,0.08); }
@@ -1563,7 +1585,7 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-visual { position: static; height: 56vw; min-height: 260px; max-height: 420px; border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px 0; }
+  .hero-visual { position: static; height: 56vw; min-height: 260px; max-height: 420px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 20px 0; }
   .hero-content { padding: 36px 24px 48px; }
   .config-acc-grid { grid-template-columns: 1fr; }
   .config-service-grid { grid-template-columns: 1fr; }
