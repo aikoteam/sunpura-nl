@@ -245,8 +245,8 @@ nav {
 /* HERO IMAGE SIDE */
 .hero-visual {
   position: sticky;
-  top: 0;
-  height: 92vh;
+  top: 64px;
+  height: calc(100vh - 64px);
   background: var(--light);
   border-right: 1px solid var(--border);
   display: flex;
