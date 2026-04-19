@@ -1,0 +1,896 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sunpura S2400 Thuisbatterij | Plug & Play · Levering & Installatie Limburg</title>
+<meta name="description" content="Sunpura S2400 plug-and-play thuisbatterij met lokale installatie in Limburg. Voorbestelling nu open. Inclusief aansluiting, app-configuratie en P1-koppeling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-mark">
+      <svg viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M9 2L3 7v9h4v-5h4v5h4V7L9 2z" fill="white" opacity="0.9"/>
+        <circle cx="9" cy="10" r="1.5" fill="white"/>
+      </svg>
+    </div>
+    <span class="nav-logo-text">Adsio <span>Energy</span></span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#waarom">Voordelen</a></li>
+    <li><a href="#specs">Specificaties</a></li>
+    <li><a href="#accessoires">Accessoires</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#" onclick="openOrderPopup(); return false;" class="nav-cta">Bestellen</a></li>
+  </ul>
+
+  <button class="nav-hamburger" id="navHamburger" aria-label="Menu openen" aria-expanded="false">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+</nav>
+
+<!-- MOBILE NAV -->
+<nav class="mobile-nav" id="mobileNav" aria-hidden="true">
+  <a href="#waarom">Voordelen</a>
+  <a href="#specs">Specificaties</a>
+  <a href="#accessoires">Accessoires</a>
+  <a href="#faq">FAQ</a>
+  <a href="#" onclick="openOrderPopup(); mobileNav.classList.remove('open'); hamburger.classList.remove('open'); return false;" class="mobile-cta">Bestellen →</a>
+</nav>
+
+<!-- HERO -->
+<section style="padding: 0; overflow: hidden;">
+  <div class="hero">
+
+    <!-- LEFT: sticky product image -->
+    <div class="hero-visual">
+      <span class="config-popular-badge" id="popularBadge">★ Meest gekozen</span>
+      <img id="configImg" src="images/product-2-4kwh.png" alt="Sunpura S2400 2,4 kWh">
+    </div>
+
+    <!-- RIGHT: text + configurator -->
+    <div class="hero-content">
+      <div class="hero-badge">Voorbestelling open · Limburg</div>
+      <h1>Plug & play <em>thuisbatterij</em><br>voor zonnepanelen</h1>
+      <p class="hero-sub">Slimme AI-sturing, persoonlijke service in Limburg. Wij leveren aan huis, installeren en leggen alles uit — geen pakket uit het buitenland.</p>
+
+      <!-- CONFIGURATOR -->
+      <div class="configurator-card">
+
+        <div class="config-section" style="margin-bottom:6px; padding-bottom:16px; border-bottom:1px solid var(--border);">
+          <div style="font-size:12px; color:var(--muted); margin-bottom:6px; font-family:var(--mono); letter-spacing:.04em; text-transform:uppercase;" id="configProductName">Sunpura S2400 Basis · 2,4 kWh</div>
+          <div class="config-price-display">
+            <span class="config-price-new" id="configPriceNew">€967</span>
+            <span class="config-price-old" id="configPriceOld">€1.404</span>
+            <span class="config-price-discount" id="configDiscount">−31%</span>
+          </div>
+          <div style="font-size:11px; color:var(--muted);">Basisprijs incl. 21% BTW · service optioneel</div>
+        </div>
+
+        <div class="config-section">
+          <div class="config-label">Capaciteit</div>
+          <div class="cap-btns">
+            <button class="cap-btn active" data-kwh="2,4" data-price="967" data-old-price="1404" data-img="images/product-2-4kwh.png" data-name="S2400 Basis" data-modules="A2400 + 1× B2400">2,4 kWh<small>€967</small></button>
+            <button class="cap-btn" data-kwh="4,8" data-price="1510" data-old-price="2008" data-img="images/product-4-8kwh.png" data-name="S2400 Standaard" data-modules="A2400 + 2× B2400">4,8 kWh<small>€1.510</small><span class="cap-popular">★ meest gekozen</span></button>
+            <button class="cap-btn" data-kwh="7,2" data-price="2053" data-old-price="2611" data-img="images/product-7-2kwh.png" data-name="S2400 Uitgebreid" data-modules="A2400 + 3× B2400">7,2 kWh<small>€2.053</small></button>
+            <button class="cap-btn" data-kwh="9,6" data-price="2596" data-old-price="3215" data-img="images/product-9-6kwh.png" data-name="S2400 Maximaal" data-modules="A2400 + 4× B2400">9,6 kWh<small>€2.596</small></button>
+            <button class="cap-btn cap-btn-uitbreiding" data-kwh="2,4" data-price="551" data-old-price="604" data-img="images/product-2-4kwh.png" data-name="B2400 Uitbreiding" data-modules="1× B2400 losse module">B2400 losse uitbreidingsmodule<small>Heb je al een S2400? · €551</small></button>
+          </div>
+        </div>
+
+        <div class="config-section">
+          <div class="config-label">Accessoires <span style="font-weight:400;text-transform:none;font-family:var(--sans);letter-spacing:0;font-size:11px;">(optioneel)</span></div>
+          <div class="config-acc-grid">
+            <label class="config-check-item">
+              <input type="checkbox" id="accP1" value="29">
+              <div class="config-item-info">
+                <span class="config-item-name">P1 Meter <span class="config-item-price">+€29</span></span>
+                <span class="config-item-desc">Zorgt dat je zonne-energie zelf gebruikt i.p.v. terug te leveren — de batterij laadt automatisch bij zodra je panelen meer produceren dan je verbruikt.</span>
+              </div>
+            </label>
+            <label class="config-check-item">
+              <input type="checkbox" id="accPlug" value="29">
+              <div class="config-item-info">
+                <span class="config-item-name">Smart Plug <span class="config-item-price">+€29</span></span>
+                <span class="config-item-desc">Sluit je wasmachine of vaatwasser aan — de app start ze automatisch op wanneer je panelen een overschot hebben.</span>
+              </div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-section">
+          <div class="config-label">Service</div>
+          <div class="config-service-grid">
+            <label class="config-service-card">
+              <input type="radio" name="cfgService" value="0">
+              <div class="service-card-title">Alleen levering</div>
+              <div class="service-card-desc">Bezorging aan huis in Limburg. Je plaatst de S2400 zelf — handleiding en video-instructie inbegrepen.</div>
+              <div class="service-card-price">Gratis</div>
+            </label>
+            <label class="config-service-card">
+              <input type="radio" name="cfgService" value="99" checked>
+              <div class="service-card-title">Installatie</div>
+              <div class="service-card-desc">Wij monteren de S2400, sluiten aan op het net en stellen de app in op jouw telefoon.</div>
+              <div class="service-card-price">+€99</div>
+            </label>
+            <label class="config-service-card">
+              <input type="radio" name="cfgService" value="179">
+              <div class="service-card-title">Installatie + Support</div>
+              <div class="service-card-desc">Montage, app-instelling én 2 maanden WhatsApp-support na plaatsing — voor vragen en optimalisatie.</div>
+              <div class="service-card-price">+€179</div>
+            </label>
+          </div>
+        </div>
+
+        <div class="config-total-row">
+          <div>
+            <div class="config-total-label">Totaal incl. 21% BTW</div>
+            <div class="config-total-price" id="configTotal">€1.066</div>
+          </div>
+          <div class="config-note">Geen betaling nu<br>Wij nemen contact op</div>
+        </div>
+        <button class="config-cta" onclick="openOrderPopup()">Aanvragen →</button>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TRUST BAR -->
+<div class="trust-bar">
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+    LiFePO₄ — veiligste batterijchemie
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+    CE · UN38.3 · RoHS gecertificeerd
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+    Lokale levering in Limburg
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+    Persoonlijke service
+  </div>
+  <div class="trust-item">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+    EUPD Top Innovation Award 2025
+  </div>
+</div>
+
+<!-- GALLERY SLIDER -->
+<section class="gallery-section">
+  <div style="max-width:1200px; margin:0 auto; padding: 0 2rem;">
+    <div class="gallery-slider" id="gallerySlider">
+
+      <div class="gallery-slide active">
+        <img src="images/s2400-interior.jpg" alt="Sunpura S2400 in keuken interieur">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Binnen plaatsing</div>
+          <div class="gallery-caption-text">Compact genoeg voor in de woonkamer of keuken</div>
+        </div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="images/s2400-exterior.jpg" alt="Sunpura S2400 buiten aan woning">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Buiten plaatsing</div>
+          <div class="gallery-caption-text">IP65: volledig weerbestendig voor tuin, balkon of garage</div>
+        </div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="images/s2400-energy-home.jpg" alt="Energiestroom door het huis">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Slim energiebeheer</div>
+          <div class="gallery-caption-text">Sla zonne-energie op en gebruik het wanneer jij wil</div>
+        </div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="images/s2400-night.jpg" alt="Sunpura S2400 nachtscène">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Noodstroom</div>
+          <div class="gallery-caption-text">Bij stroomuitval schakelt de S2400 automatisch over op batterij</div>
+        </div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="images/s2400-winter.jpg" alt="Sunpura S2400 winter buiten">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Alle seizoenen</div>
+          <div class="gallery-caption-text">Werkt van -20°C tot +55°C — ook in de winter betrouwbaar</div>
+        </div>
+      </div>
+
+      <div class="gallery-slide">
+        <img src="images/s2400-rain.jpg" alt="Sunpura S2400 regen en onweer">
+        <div class="gallery-caption">
+          <div class="gallery-caption-label">Weerbestendig</div>
+          <div class="gallery-caption-text">IP65 beschermt tegen regen, stof en vocht</div>
+        </div>
+      </div>
+
+      <!-- dots -->
+      <div class="gallery-dots" id="galleryDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- WAAROM -->
+<section id="waarom">
+  <div class="container">
+    <div class="section-label">Waarom de S2400</div>
+    <h2 class="section-title">Jouw zonnepanelen, eindelijk volledig benut</h2>
+    <p class="section-sub">Heb je al zonnepanelen met een netinverter? Dan is de S2400 de slimste aanvulling. Het salderingsstelsel verdwijnt eind 2027 — wie nu opslag toevoegt, vermindert al de terugleveringkosten en is klaar voor wat komt.</p>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <div class="why-title">Plug & play — geen elektricien nodig</div>
+        <div class="why-text">Stekker in het stopcontact, app verbinden, P1-meter koppelen. Geen vergunning, geen vaste installatie, geen gedoe. Wij helpen je er desgewenst bij.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div class="why-title">LiFePO₄ — brandveilig</div>
+        <div class="why-text">De veiligste lithium-chemie. Geen thermische runaway, stabiel bij hoge temperaturen, IP65 voor binnen én buiten.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <div class="why-title">8.000 cycli · 10 jaar garantie</div>
+        <div class="why-text">Bij dagelijks gebruik gaat de batterij meer dan 20 jaar mee. 10 jaar fabrieksgarantie op alle componenten.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/></svg>
+        </div>
+        <div class="why-title">AI-sturing op dynamische tarieven</div>
+        <div class="why-text">Laadt automatisch wanneer stroom goedkoop is, ontlaadt bij hoge tarieven. Werkt met Tibber, HomeWizard en meer.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+        </div>
+        <div class="why-title">Uitbreidbaar tot 9,6 kWh</div>
+        <div class="why-text">Begin met 2,4 kWh en voeg eenvoudig extra modules toe. Stapelbaar zonder extra bekabeling.</div>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><circle cx="12" cy="11" r="3"/></svg>
+        </div>
+        <div class="why-title">Lokale service in Limburg</div>
+        <div class="why-text">Wij zijn lokaal. Levering, installatie en uitleg aan huis — geen callcenter, maar direct contact.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Hoe werkt het</div>
+    <h2 class="section-title">Van bestelling tot besparing</h2>
+
+    <div class="steps">
+      <div class="step">
+        <div class="step-number">01</div>
+        <div class="step-title">Voorbestellen</div>
+        <div class="step-text">Kies je capaciteit, accessoires en serviceniveau via de configurator. Verstuur je aanvraag — geen betaling nu.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">02</div>
+        <div class="step-title">Bevestiging & planning</div>
+        <div class="step-text">Wij nemen binnen 1 werkdag contact op en plannen de levering op een moment dat jou uitkomt.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">03</div>
+        <div class="step-title">Levering aan huis</div>
+        <div class="step-text">We leveren persoonlijk, installeren indien gewenst en leggen alles uit.</div>
+      </div>
+      <div class="step">
+        <div class="step-number">04</div>
+        <div class="step-title">Direct besparen</div>
+        <div class="step-text">Systeem actief, app verbonden, zonne-energie opgeslagen. Klaar.</div>
+      </div>
+    </div>
+
+    <p style="text-align:center; margin-top:36px; font-size:13px; color:var(--grey);">
+      Levering op afspraak, zo snel mogelijk na bevestiging · Betaling restant bij levering
+    </p>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section id="specs">
+  <div class="container">
+    <div class="section-label" style="color: #4dd98a;">Technische specificaties</div>
+    <h2 class="section-title" style="color:white;">Sunpura S2400 — wat zit erin</h2>
+
+    <div class="specs-grid">
+      <div>
+        <div class="specs-table">
+          <div class="row"><span class="key">Batterijtype</span><span class="val good">LiFePO₄</span></div>
+          <div class="row"><span class="key">Capaciteit per module</span><span class="val">2,4 kWh</span></div>
+          <div class="row"><span class="key">Max. capaciteit</span><span class="val">9,6 kWh (4 modules)</span></div>
+          <div class="row"><span class="key">On-grid vermogen</span><span class="val">800 W</span></div>
+          <div class="row"><span class="key">Off-grid vermogen</span><span class="val">2.400 W</span></div>
+          <div class="row"><span class="key">MPPT-ingangen</span><span class="val">2× (10–100V, 16A)</span></div>
+          <div class="row"><span class="key">PV-vermogen max.</span><span class="val">2.000 W</span></div>
+          <div class="row"><span class="key">Rendement</span><span class="val good">~98%</span></div>
+          <div class="row"><span class="key">Levensduur cycli</span><span class="val good">8.000</span></div>
+          <div class="row"><span class="key">Garantie</span><span class="val good">10 jaar</span></div>
+          <div class="row"><span class="key">IP-classificatie</span><span class="val">IP65 (buiten OK)</span></div>
+          <div class="row"><span class="key">Temperatuurbereik</span><span class="val">-20°C tot +55°C</span></div>
+          <div class="row"><span class="key">Gewicht (module)</span><span class="val">28,1 kg</span></div>
+          <div class="row"><span class="key">Afmetingen (B×H×D)</span><span class="val">450×255×273 mm</span></div>
+          <div class="row"><span class="key">Connectiviteit</span><span class="val">WiFi + Bluetooth</span></div>
+        </div>
+      </div>
+
+      <div>
+        <p style="color:rgba(255,255,255,0.5); font-size:14px; line-height:1.7; margin-bottom:24px;">
+          De S2400 werkt samen met meer dan 700 energieleveranciers en smart home-platformen — waaronder HomeWizard, Tibber, Shelly en Home Assistant.
+        </p>
+
+        <div class="cert-list">
+          <div class="cert-item">
+            <div class="cert-icon">CE</div>
+            <div class="cert-text">
+              <div class="cert-name">CE-certificering</div>
+              <div class="cert-desc">Voldoet aan EU-veiligheids- en EMC-normen</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon">UN</div>
+            <div class="cert-text">
+              <div class="cert-name">UN38.3 Testrapport</div>
+              <div class="cert-desc">Transportveiligheid lithium-accu's (alle 8 tests geslaagd)</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon">RoHS</div>
+            <div class="cert-text">
+              <div class="cert-name">RoHS-compliant</div>
+              <div class="cert-desc">Vrij van gevaarlijke stoffen</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon">LFP</div>
+            <div class="cert-text">
+              <div class="cert-name">LiFePO₄ chemie</div>
+              <div class="cert-desc">Veiligste li-ion technologie, geen thermische runaway</div>
+            </div>
+          </div>
+          <div class="cert-item">
+            <div class="cert-icon" style="font-size:9px;">EUPD</div>
+            <div class="cert-text">
+              <div class="cert-name">EUPD Top Innovation Award 2025</div>
+              <div class="cert-desc">Erkend als toonaangevende innovatie in energieopslag</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APP SECTION -->
+<section class="app-section">
+  <div class="container">
+    <div class="app-grid">
+      <div>
+        <div class="app-promo-wrap">
+          <img src="images/sunpura-app-overview.jpg" alt="Sunpura App — realtime energie inzicht">
+        </div>
+        <div class="app-screens-row">
+          <div class="app-screen-frame">
+            <img src="images/app-screen-home.jpg" alt="Sunpura App home scherm">
+          </div>
+          <div class="app-screen-frame">
+            <img src="images/app-screen-stats.jpg" alt="Sunpura App statistieken">
+          </div>
+          <div class="app-screen-frame">
+            <img src="images/app-screen-modes.jpg" alt="Sunpura App modi">
+          </div>
+        </div>
+      </div>
+
+      <div class="app-text-block">
+        <div class="section-label">Sunpura App</div>
+        <h2 class="section-title" style="color:white;">Alles in de palm van je hand</h2>
+        <ul class="app-feat-list">
+          <li>Realtime inzicht in opwek, verbruik en batterijstatus</li>
+          <li>AI-modus optimaliseert automatisch op basis van energieprijzen en weersvoorspelling</li>
+          <li>Koppeling met dynamische tarieven via Tibber, HomeWizard en meer</li>
+          <li>Noodstroom-modus instellen en bewaken</li>
+          <li>Energiestatistieken per dag, week, maand en jaar</li>
+          <li>Werkt op iOS en Android</li>
+        </ul>
+        <div class="store-badges">
+          <a href="https://apps.apple.com/de/app/sunpura/id6738272367?l=en-GB" target="_blank" rel="noopener" class="store-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+            App Store
+          </a>
+          <a href="https://play.google.com/store/apps/details?id=com.sunpura.nky" target="_blank" rel="noopener" class="store-badge">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M22.018 13.298l-3.919 2.218-3.515-3.493 3.543-3.521 3.891 2.202a1.49 1.49 0 0 1 0 2.594zM1.337.924a1.486 1.486 0 0 0-.112.568v21.017c0 .217.045.419.124.6l11.155-11.087L1.337.924zm12.207 10.065l3.258-3.238L3.45.195a1.466 1.466 0 0 0-.946-.179l11.04 10.973zm0 2.067l-11 10.933c.298.065.612.043.906-.083l13.324-7.568-3.23-3.282z"/></svg>
+            Google Play
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ACCESSORIES -->
+<section id="accessoires" style="background: var(--light);">
+  <div class="container">
+    <div class="section-label">Accessoires</div>
+    <h2 class="section-title">Haal alles uit je systeem</h2>
+    <p class="section-sub">Selecteerbaar bij je aanvraag. De P1 Meter is voor de meeste Nederlanders de slimste aanvulling — in NL heeft elke slimme meter een P1-poort.</p>
+
+    <div class="acc-grid">
+
+      <div class="acc-card">
+        <div class="acc-img">
+          <img src="images/acc-p1-meter.jpg" alt="Sunpura P1 Meter voor slimme meter koppeling">
+        </div>
+        <div class="acc-body">
+          <div class="acc-tag">Aanbevolen voor NL</div>
+          <div class="acc-name">Sunpura P1 Meter <span style="font-size:13px;font-weight:400;color:var(--green);font-family:var(--mono);">€29</span></div>
+          <div class="acc-desc">Zonder P1 Meter laadt de batterij op een vast schema — mét P1 Meter ziet de batterij realtime wat je zonnepanelen produceren en wat je verbruikt. Zodra je meer opwekt dan je gebruikt, laadt de batterij automatisch bij. Zo lever je zo min mogelijk terug aan het net en gebruik je maximaal je eigen stroom. Inclusief RJ11-kabel, installatie in 2 minuten.</div>
+          <div class="acc-compat">Compatibel met alle Nederlandse slimme meters (DSMR P1)</div>
+        </div>
+      </div>
+
+      <div class="acc-card">
+        <div class="acc-img">
+          <img src="images/acc-smart-plug.jpg" alt="Sunpura slimme stekker Schuko">
+        </div>
+        <div class="acc-body">
+          <div class="acc-tag">Slim verbruiksbeheer</div>
+          <div class="acc-name">Sunpura Smart Plug <span style="font-size:13px;font-weight:400;color:var(--green);font-family:var(--mono);">€29</span></div>
+          <div class="acc-desc">Steek je wasmachine, vaatwasser of boiler in de Smart Plug. De Sunpura app schakelt ze automatisch in wanneer je batterij vol is of je panelen meer produceren dan je verbruikt — zo gebruik je je eigen stroom op het juiste moment. Max. 16A, Schuko-formaat, direct klaar voor gebruik.</div>
+          <div class="acc-compat">Werkt met de Sunpura AI-energiebeheermodus</div>
+        </div>
+      </div>
+
+      <div class="acc-card">
+        <div class="acc-img" style="padding: 24px;">
+          <img src="images/sunpura-smart-home.jpg" alt="Smart Home integraties" style="max-height: 180px; border-radius: 8px;">
+        </div>
+        <div class="acc-body">
+          <div class="acc-tag">Gratis — inbegrepen</div>
+          <div class="acc-name">Smart Home integratie</div>
+          <div class="acc-desc">De S2400 werkt naadloos samen met HomeWizard, Tibber, Shelly, Home Assistant, everHome en Homey. Meer dan 700 compatibele energieleveranciers — jouw smarthome werkt meteen mee.</div>
+          <div class="acc-compat">Geen extra hardware nodig — WiFi-koppeling via de app</div>
+        </div>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; margin-top:28px; font-size:14px; color:var(--grey);">
+      Accessoires selecteer je eenvoudig bij de aanvraag. &nbsp;
+      <a href="#" onclick="openOrderPopup(); return false;" style="color:var(--green); font-weight:600; text-decoration:none;">Configureer jouw systeem →</a>
+    </p>
+  </div>
+</section>
+
+<!-- VIDEO REVIEWS -->
+<section>
+  <div class="container">
+    <div class="section-label">Onafhankelijke reviews</div>
+    <h2 class="section-title">Wat anderen zeggen over de S2400</h2>
+    <p class="section-sub">Eerlijke video-reviews van makers die de Sunpura S2400 zelf hebben getest en geïnstalleerd.</p>
+
+    <div class="video-grid">
+
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/zJ7IHD7aFf4" title="Sunpura S2400 Review – Kris Tech Review" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-author">Kris Tech Review</div>
+          <div class="video-title">Modulaire Plug & Play Thuisbatterij die je Zelf Opbouwt!</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/rwG5tU0gbbk" title="Sunpura S2400 Review – Martijn Wester" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-author">Martijn Wester</div>
+          <div class="video-title">The Plug-In Battery Done Right.</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="video-wrap">
+          <iframe src="https://www.youtube-nocookie.com/embed/hVHh5mFYUGQ" title="Sunpura S2400 Test – Funkyhome" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy"></iframe>
+        </div>
+        <div class="video-meta">
+          <div class="video-author">Funkyhome</div>
+          <div class="video-title">Balkonkraftwerk Speicher Test</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <div class="container">
+    <div class="section-label">Veelgestelde vragen</div>
+    <h2 class="section-title">Antwoorden op jouw vragen</h2>
+
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Heb ik zonnepanelen nodig?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Nee. De S2400 laadt ook via het stopcontact — ideaal bij dynamische energiecontracten om goedkope stroom op te slaan. Met zonnepanelen profiteer je extra doordat overtollige PV-energie direct wordt opgeslagen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Moet ik de batterij registreren?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. Netbeheerders verplichten registratie via energieleveren.nl. Wij regelen dit voor je bij het Installatie- en Volledig ontzorgd-pakket. Het is een eenvoudig online formulier dat je ook zelf kunt invullen.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Welke P1-meter werkt ermee?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">De S2400 ondersteunt HomeWizard P1, Shelly, Tibber, Powerfox en IOmeter. Als je al een HomeWizard hebt, ben je direct klaar. Anders leveren wij desgewenst een compatibele P1-meter mee.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Wat is een voorbestelling en wanneer betaal ik?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Na je aanmelding nemen wij contact op om een leveringsdatum af te spreken die jou uitkomt. Betaling in twee termijnen: 50% aanbetaling bij bevestiging, 50% bij levering.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kan ik later uitbreiden met extra modules?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. De B2400-modules stapel je eenvoudig op elkaar zonder extra bekabeling tussen omvormer en accu. Je kunt uitbreiden van 2,4 naar maximaal 9,6 kWh. Losse modules zijn beschikbaar voor €499 incl. BTW.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Mag ik de batterij buiten plaatsen?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. De IP65-certificering beschermt tegen stof en waterstralen. Vermijd directe zonnestraling en zorg voor voldoende ventilatie rondom het apparaat. Balkon, tuin of garage zijn prima locaties.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Werkt het systeem bij stroomuitval?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. De S2400 heeft een ingebouwde UPS-functie. Bij stroomuitval schakelt het systeem automatisch over op batterijvermogen en levert tot 2.400W off-grid aan essentiële apparaten.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Hoeveel kan ik besparen?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Dat hangt af van je verbruiksprofiel, tariefvorm en aanwezigheid van zonnepanelen. Een gemiddeld huishouden met 4,8 kWh opslag en dynamisch tarief bespaart typisch €200–400 per jaar. Met zonnepanelen erbij loopt de besparing hoger op. Vraag ons gerust om een persoonlijke berekening.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-brand">
+        <div class="footer-brand-mark">⚡</div>
+        <span class="footer-brand-name">Adsio Energy</span>
+      </div>
+      <p class="footer-desc">Lokale verkoop en installatie van plug & play thuisbatterijen in Limburg. Onderdeel van Adsio Consult.</p>
+      <div class="footer-legal">
+        BTW: NL004741042B25 · KvK: 89552199<br>
+        energy.adsioconsult.nl
+      </div>
+    </div>
+
+    <div class="footer-col">
+      <h4>Navigatie</h4>
+      <ul>
+        <li><a href="#waarom">Voordelen</a></li>
+        <li><a href="#pakketten">Pakketten</a></li>
+        <li><a href="#installatie">Installatie</a></li>
+        <li><a href="#specs">Specificaties</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#accessoires">Accessoires</a></li>
+        <li><a href="#bestellen">Bestellen</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="mailto:info@adsioconsult.nl">info@adsioconsult.nl</a></li>
+        <li><a href="https://wa.me/31610267870" target="_blank" rel="noopener">WhatsApp: +316 1026 7870</a></li>
+        <li><a href="#" onclick="openModal('modal-av'); return false;">Algemene Voorwaarden</a></li>
+        <li><a href="#" onclick="openModal('modal-privacy'); return false;">Privacybeleid</a></li>
+        <li><a href="#" onclick="openModal('modal-retour'); return false;">Retourbeleid</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <span>© 2026 Adsio Energy · Meterik, Limburg</span>
+    <span>Specialist in Sunpura thuisbatterijen · LiFePO₄ plug & play opslag</span>
+  </div>
+</footer>
+
+<!-- MODAL: ALGEMENE VOORWAARDEN -->
+<div class="modal-overlay" id="modal-av" role="dialog" aria-modal="true" aria-labelledby="modal-av-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-av')" aria-label="Sluiten">✕</button>
+    <h2 id="modal-av-title">Algemene Voorwaarden</h2>
+    <div class="modal-meta">
+      Adsio Energy — handelsnaam van Adsio Consult<br>
+      Venray, 5802 AH, Limburg · KvK: 89552199 · BTW: NL004741042B25<br>
+      Versie: april 2026
+    </div>
+
+    <h3>Artikel 1 — Identiteit</h3>
+    <p>Adsio Energy is een handelsnaam van Adsio Consult, gevestigd te Venray, 5802 AH, Limburg. KvK: 89552199 | BTW: NL004741042B25 | E-mail: info@adsioconsult.nl | WhatsApp: +316 1026 7870.</p>
+
+    <h3>Artikel 2 — Toepasselijkheid</h3>
+    <p>Deze voorwaarden zijn van toepassing op alle aanbiedingen, bestellingen en overeenkomsten via energy.adsioconsult.nl. Door een bestelling te plaatsen aanvaardt u deze voorwaarden.</p>
+
+    <h3>Artikel 3 — Aanbod en prijzen</h3>
+    <p>Alle vermelde prijzen zijn inclusief 21% BTW. Adsio Energy behoudt zich het recht voor het aanbod te wijzigen. Zichtbare fouten of vergissingen in de prijsstelling binden Adsio Energy niet.</p>
+
+    <h3>Artikel 4 — Bestelling en overeenkomst</h3>
+    <p>Een bestelling via het formulier op de website geldt als een intentieverklaring. De koopovereenkomst komt tot stand op het moment dat Adsio Energy de bestelling schriftelijk per e-mail bevestigt. Pas na deze bevestiging ontstaan wederzijdse verplichtingen.</p>
+
+    <h3>Artikel 5 — Betaling</h3>
+    <p>Betaling vindt plaats in twee termijnen: 50% aanbetaling na ontvangst van de factuur, te voldoen via iDEAL of bankoverschrijving. Het resterende bedrag (50%) wordt bij levering voldaan. Eigendomsoverdracht vindt pas plaats na volledige betaling.</p>
+
+    <h3>Artikel 6 — Levering</h3>
+    <p>Levering vindt persoonlijk plaats op het opgegeven adres binnen de provincie Limburg en is bij aankoop inbegrepen. De leveringstermijn wordt in overleg afgesproken. Adsio Energy streeft naar levering binnen 5–14 werkdagen na orderbevestiging. Opgegeven termijnen zijn indicatief.</p>
+
+    <h3>Artikel 7 — Garantie</h3>
+    <p>De Sunpura S2400 wordt geleverd met 10 jaar fabrieksgarantie van Sunpura Technology. Deze garantie dekt fabricagefouten en productiedefecten. De garantie geldt niet bij schade door onjuist gebruik, eigen modificaties of normale slijtage.</p>
+    <p>Garantieclaims worden afgehandeld rechtstreeks door Sunpura Technology als fabrikant. Adsio Energy ondersteunt de consument bij de communicatie met de fabrikant en treedt op als tussenpersoon waar mogelijk, maar draagt geen aansprakelijkheid voor de afhandeling door de fabrikant.</p>
+
+    <h3>Artikel 8 — Herroepingsrecht</h3>
+    <p>Als consument heeft u het recht de overeenkomst binnen 14 kalenderdagen na ontvangst van het product zonder opgave van reden te ontbinden. Meld uw herroeping per e-mail (info@adsioconsult.nl) of WhatsApp. Het product dient ongebruikt, compleet en in de originele verpakking te worden geretourneerd.</p>
+    <p>Het herroepingsrecht vervalt voor producten die op uw uitdrukkelijk verzoek op maat zijn samengesteld, producten waarvan de verzegeling na levering is verbroken voor zover dit redelijkerwijs niet noodzakelijk was voor inspectie.</p>
+
+    <h3>Artikel 9 — Retour en terugzending</h3>
+    <p>Retourzendingen verlopen uitsluitend in overleg met Adsio Energy. Voor garantieretours verstrekt Sunpura Technology een retourlabel en verloopt de terugzending rechtstreeks naar de fabrikant. Adsio Energy coördineert de communicatie en ondersteunt het proces waar mogelijk, maar is niet aansprakelijk voor de verwerking of afwikkeling door de fabrikant.</p>
+    <p>Retourkosten bij gebruikmaking van het herroepingsrecht zijn voor rekening van de consument, tenzij het product aantoonbaar defect of beschadigd bij ontvangst was.</p>
+
+    <h3>Artikel 10 — Aansprakelijkheid</h3>
+    <p>Adsio Energy is niet aansprakelijk voor indirecte schade, gevolgschade of gederfde winst. De totale aansprakelijkheid is in alle gevallen beperkt tot het factuurbedrag van de betreffende bestelling.</p>
+
+    <h3>Artikel 11 — WEEE en recycling</h3>
+    <p>Lithium-accu's mogen niet als huishoudelijk restafval worden aangeboden. De Sunpura S2400 valt onder de WEEE-richtlijn (EU 2012/19/EU). Het doorgestreepte afvalbaksymbool op het product geeft dit aan. Bied het product aan het einde van de levensduur aan bij een erkend inzamelpunt of neem contact op met Adsio Energy voor coördinatie van de inname en recycling via gecertificeerde kanalen.</p>
+
+    <h3>Artikel 12 — Toepasselijk recht en geschillen</h3>
+    <p>Op alle overeenkomsten is uitsluitend Nederlands recht van toepassing. Geschillen worden bij voorkeur in onderling overleg opgelost. Indien dit niet lukt, worden zij voorgelegd aan de bevoegde rechter in het arrondissement Limburg, of aan de Geschillencommissie Thuiswinkel (www.sgc.nl).</p>
+  </div>
+</div>
+
+<!-- MODAL: PRIVACYBELEID -->
+<div class="modal-overlay" id="modal-privacy" role="dialog" aria-modal="true" aria-labelledby="modal-privacy-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-privacy')" aria-label="Sluiten">✕</button>
+    <h2 id="modal-privacy-title">Privacybeleid</h2>
+    <div class="modal-meta">
+      Adsio Energy — handelsnaam van Adsio Consult · KvK: 89552199<br>
+      Versie: april 2026 · Van toepassing per 14 april 2026
+    </div>
+
+    <h3>Verantwoordelijke</h3>
+    <p>Adsio Consult (handelsnaam: Adsio Energy), gevestigd te Venray, 5802 AH, Limburg. KvK: 89552199. E-mail: info@adsioconsult.nl.</p>
+
+    <h3>Welke gegevens verwerken wij?</h3>
+    <p>Via het bestelformulier op energy.adsioconsult.nl verwerken wij de volgende persoonsgegevens:</p>
+    <ul>
+      <li>Voornaam en achternaam</li>
+      <li>E-mailadres</li>
+      <li>Telefoonnummer (optioneel)</li>
+      <li>Postcode en woonplaats</li>
+      <li>Gekozen pakket en serviceoptie</li>
+      <li>Vrijwillig ingevulde opmerkingen</li>
+    </ul>
+
+    <h3>Doel en grondslag</h3>
+    <p>Wij verwerken uw gegevens uitsluitend voor:</p>
+    <ul>
+      <li>Het verwerken en bevestigen van uw bestelling</li>
+      <li>Het plannen en uitvoeren van de levering</li>
+      <li>Facturatie en wettelijke administratieplicht</li>
+      <li>Contact over uw bestelling en nazorg</li>
+    </ul>
+    <p>Grondslag: uitvoering van de overeenkomst (art. 6 lid 1 sub b AVG) en het nakomen van wettelijke verplichtingen (sub c).</p>
+
+    <h3>Verwerkers en derden</h3>
+    <p>Uw formuliergegevens worden verwerkt via <strong>Web3Forms</strong> (web3forms.com), een externe dienstverlener die voldoet aan de AVG. Wij verkopen uw gegevens niet aan derden en gebruiken ze niet voor marketingdoeleinden zonder uw toestemming.</p>
+
+    <h3>Bewaartermijn</h3>
+    <p>Klantgegevens die verband houden met facturatie bewaren wij conform de wettelijke bewaarplicht van 7 jaar. Overige gegevens worden uiterlijk 2 jaar na de laatste interactie verwijderd.</p>
+
+    <h3>Uw rechten</h3>
+    <p>U heeft het recht op inzage, rectificatie, verwijdering, overdraagbaarheid en beperking van uw persoonsgegevens, alsmede het recht van bezwaar. Neem hiervoor contact op via info@adsioconsult.nl. Wij reageren binnen 30 dagen.</p>
+
+    <h3>Klachten</h3>
+    <p>Bent u van mening dat wij uw gegevens niet correct verwerken? U kunt een klacht indienen bij de Autoriteit Persoonsgegevens via <strong>autoriteitpersoonsgegevens.nl</strong>.</p>
+  </div>
+</div>
+
+<!-- MODAL: RETOURBELEID -->
+<div class="modal-overlay" id="modal-retour" role="dialog" aria-modal="true" aria-labelledby="modal-retour-title">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal('modal-retour')" aria-label="Sluiten">✕</button>
+    <h2 id="modal-retour-title">Retourbeleid</h2>
+    <div class="modal-meta">
+      Adsio Energy — handelsnaam van Adsio Consult · KvK: 89552199<br>
+      Versie: april 2026
+    </div>
+
+    <h3>Herroepingsrecht — 14 dagen bedenktijd</h3>
+    <p>Als consument heeft u het recht uw aankoop binnen <strong>14 kalenderdagen</strong> na ontvangst zonder opgave van reden te ontbinden. Meld uw herroeping per e-mail (info@adsioconsult.nl) of via WhatsApp (+316 1026 7870) binnen deze termijn. Na ontvangst van uw melding ontvangt u verdere instructies.</p>
+    <p>Het product dient ongebruikt, compleet en in de originele verpakking te worden geretourneerd.</p>
+
+    <h3>Retourkosten</h3>
+    <p>Bij gebruikmaking van het herroepingsrecht zijn de retourkosten voor rekening van de consument, tenzij het product bij ontvangst aantoonbaar beschadigd of defect was. Adsio Energy coördineert de terugzending in overleg.</p>
+
+    <h3>Terugbetaling</h3>
+    <p>Na ontvangst en inspectie van het geretourneerde product vindt terugbetaling van het aankoopbedrag plaats binnen 14 dagen, via de oorspronkelijke betaalmethode.</p>
+
+    <h3>Garantieretours — via Sunpura Technology</h3>
+    <p>De Sunpura S2400 heeft 10 jaar fabrieksgarantie van Sunpura Technology. Bij defecten of klachten die onder de garantie vallen, verloopt de afhandeling als volgt:</p>
+    <ul>
+      <li>Neem eerst contact op met Adsio Energy via e-mail of WhatsApp — wij helpen bij de beoordeling en communicatie met de fabrikant.</li>
+      <li>Na goedkeuring door Sunpura Technology ontvangt u een retourlabel van de fabrikant.</li>
+      <li>Het product wordt rechtstreeks naar Sunpura Technology verzonden.</li>
+    </ul>
+    <p>Adsio Energy treedt op als tussenpersoon en ondersteunt de communicatie zoveel mogelijk, maar draagt geen aansprakelijkheid voor de inhoudelijke afhandeling, doorlooptijd of vervanging door Sunpura Technology. De garantieafhandeling valt onder de verantwoordelijkheid van de fabrikant.</p>
+
+    <h3>Uitsluitingen herroepingsrecht</h3>
+    <p>Het herroepingsrecht is niet van toepassing op:</p>
+    <ul>
+      <li>Producten die op uitdrukkelijk verzoek van de consument op maat zijn samengesteld.</li>
+      <li>Producten waarvan de verzegeling is verbroken nadat dit redelijkerwijs niet meer noodzakelijk was voor een eerste beoordeling.</li>
+      <li>Producten die zijn beschadigd door onjuist gebruik na ontvangst.</li>
+    </ul>
+
+    <h3>Contact</h3>
+    <p>E-mail: info@adsioconsult.nl | WhatsApp: +316 1026 7870</p>
+  </div>
+</div>
+
+<!-- ORDER POPUP -->
+<div class="modal-overlay" id="modal-order" role="dialog" aria-modal="true" aria-labelledby="modal-order-title">
+  <div class="modal-box order-modal-box">
+    <button class="modal-close" onclick="closeModal('modal-order')" aria-label="Sluiten">✕</button>
+    <div class="order-modal-grid">
+
+      <!-- LEFT: dark summary -->
+      <div class="order-summary">
+        <div style="font-size:12px; text-transform:uppercase; letter-spacing:.08em; opacity:.5; margin-bottom:14px;">Jouw configuratie</div>
+        <div style="margin-bottom:16px;">
+          <img id="sumImg" src="images/product-4-8kwh.png" alt="" style="width:100%; max-width:180px; border-radius:10px; display:block; margin:0 auto 16px;">
+        </div>
+        <div id="sumItems" style="font-size:14px; line-height:1.9; opacity:.85;"></div>
+        <div style="border-top:1px solid rgba(255,255,255,.12); margin:18px 0;"></div>
+        <div style="font-size:12px; opacity:.5; margin-bottom:4px;">Totaal incl. 21% BTW</div>
+        <div class="order-sum-total-amount" id="sumTotal">€1.066</div>
+        <div style="font-size:12px; opacity:.5; margin-top:10px; line-height:1.6;">Geen betaling nu.<br>Wij sturen een factuur na bevestiging.</div>
+        <div style="margin-top:20px; padding:12px; background:rgba(255,255,255,.05); border-radius:8px; font-size:12px; line-height:1.7; opacity:.75;">
+          ✅ Gratis levering in Limburg<br>
+          ✅ 14 dagen bedenktijd<br>
+          ✅ 10 jaar garantie via Sunpura<br>
+          ✅ KvK 89552199 · BTW NL004741042B25
+        </div>
+      </div>
+
+      <!-- RIGHT: contact form -->
+      <div class="order-form-side">
+        <h2 id="modal-order-title" style="font-size:20px; font-weight:700; margin-bottom:4px; color:var(--dark);">Aanvraag indienen</h2>
+        <p style="font-size:13px; color:var(--muted); margin-bottom:22px;">Wij nemen binnen 1 werkdag contact op voor bevestiging en betaalinformatie.</p>
+
+        <form id="orderForm" action="https://api.web3forms.com/submit" method="POST">
+          <input type="hidden" name="access_key" value="9f13a3ce-a6b8-407f-95a1-42fa6697d916">
+          <input type="hidden" name="subject" value="🔋 Nieuwe aanvraag – Adsio Energy">
+          <input type="hidden" name="from_name" value="Adsio Energy Website">
+          <input type="hidden" name="redirect" value="false">
+          <input type="hidden" name="configuratie" id="hiddenConfiguratie" value="">
+          <input type="checkbox" name="botcheck" style="display:none;">
+
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Voornaam *</label>
+              <input type="text" name="voornaam" class="form-input" placeholder="Jan" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Achternaam *</label>
+              <input type="text" name="achternaam" class="form-input" placeholder="de Vries" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">E-mailadres *</label>
+            <input type="email" name="email" class="form-input" placeholder="jan@email.nl" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Telefoonnummer</label>
+            <input type="tel" name="telefoon" class="form-input" placeholder="06-12345678">
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Postcode + Woonplaats *</label>
+            <input type="text" name="postcode_woonplaats" class="form-input" placeholder="5901 AB · Venlo" required>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Opmerkingen of vragen</label>
+            <textarea name="opmerkingen" class="form-textarea" placeholder="Bijv.: heb al HomeWizard P1, wil koppeling met Home Assistant..."></textarea>
+          </div>
+
+          <p class="form-note" style="font-size:11px; color:var(--muted); margin-bottom:14px;">
+            Door te verzenden ga je akkoord met onze <a href="#" onclick="openModal('modal-av'); return false;" style="color:var(--green);">Algemene Voorwaarden</a> en ons <a href="#" onclick="openModal('modal-privacy'); return false;" style="color:var(--green);">Privacybeleid</a>.
+          </p>
+
+          <button type="submit" class="form-submit" id="orderSubmitBtn">
+            Aanvraag verzenden →
+          </button>
+        </form>
+
+        <div class="order-success" id="orderSuccess">
+          <div style="font-size:48px; margin-bottom:16px;">✅</div>
+          <h3 style="font-size:20px; font-weight:700; color:var(--dark); margin-bottom:8px;">Aanvraag ontvangen!</h3>
+          <p style="color:var(--muted); font-size:14px; line-height:1.6;">Wij nemen binnen 1 werkdag contact met je op via e-mail of telefoon voor bevestiging en betaalinformatie.</p>
+          <button onclick="closeModal('modal-order')" style="margin-top:24px; padding:12px 28px; background:var(--green); color:white; border:none; border-radius:10px; font-size:15px; font-weight:600; cursor:pointer;">Sluiten</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NOTIFICATION -->
+<div class="notification" id="notification">
+  <span class="notification-icon">✅</span>
+  <div class="notif-text">
+    <strong>Bestelling ontvangen!</strong><br>
+    <span style="font-size:12px; opacity:0.7;">Wij nemen binnen 1 werkdag contact op.</span>
+  </div>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

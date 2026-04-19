@@ -1,0 +1,269 @@
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+
+// ── CONFIGURATOR STATE ──────────────────────────────────────────
+const configState = {
+  price: 967,
+  oldPrice: 1404,
+  kwh: '2,4',
+  img: 'images/product-2-4kwh.png',
+  name: 'S2400 Basis',
+  modules: 'A2400 + 1× B2400',
+  accessories: [],
+  servicePrice: 99,
+  serviceName: 'Levering + Installatie'
+};
+
+function fmtPrice(n) {
+  return '€' + n.toLocaleString('nl-NL');
+}
+
+function updateConfigTotal() {
+  const accTotal = configState.accessories.reduce((s, a) => s + a.price, 0);
+  const total = configState.price + accTotal + configState.servicePrice;
+  const el = document.getElementById('configTotal');
+  if (el) el.textContent = fmtPrice(total);
+
+  const priceNew  = document.getElementById('configPriceNew');
+  const priceOld  = document.getElementById('configPriceOld');
+  const discount  = document.getElementById('configDiscount');
+  const prodName  = document.getElementById('configProductName');
+  if (priceNew) priceNew.textContent = fmtPrice(configState.price);
+  if (priceOld) priceOld.textContent = fmtPrice(configState.oldPrice);
+  if (discount) {
+    const pct = Math.round((configState.oldPrice - configState.price) / configState.oldPrice * 100);
+    discount.textContent = '−' + pct + '%';
+  }
+  if (prodName) prodName.textContent = 'Sunpura S2400 ' + configState.name.replace('S2400 ', '') + ' · ' + configState.kwh + ' kWh';
+}
+
+// Capacity buttons
+document.querySelectorAll('.cap-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    configState.price    = parseInt(btn.dataset.price, 10);
+    configState.oldPrice = parseInt(btn.dataset.oldPrice, 10);
+    configState.kwh      = btn.dataset.kwh;
+    configState.name     = btn.dataset.name;
+    configState.modules  = btn.dataset.modules;
+
+    const newImg = btn.dataset.img;
+    const imgEl  = document.getElementById('configImg');
+    const badge  = document.getElementById('popularBadge');
+    if (imgEl) {
+      imgEl.style.opacity = '0';
+      setTimeout(function() {
+        imgEl.src = newImg;
+        imgEl.onload = function() { imgEl.style.opacity = '1'; };
+        imgEl.style.opacity = '1';
+      }, 150);
+    }
+    configState.img = newImg;
+
+    if (badge) badge.classList.toggle('visible', configState.kwh === '4,8' && configState.name !== 'B2400 Uitbreiding');
+
+    updateConfigTotal();
+  });
+});
+
+// Accessory checkboxes
+['accP1', 'accPlug'].forEach(function(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.addEventListener('change', function() {
+    const label = id === 'accP1' ? 'Sunpura P1 Meter' : 'Sunpura Smart Plug';
+    const price = parseInt(el.value, 10);
+    configState.accessories = configState.accessories.filter(a => a.id !== id);
+    if (el.checked) configState.accessories.push({ id: id, label: label, price: price });
+    updateConfigTotal();
+  });
+});
+
+// Service radios
+document.querySelectorAll('input[name="cfgService"]').forEach(function(radio) {
+  radio.addEventListener('change', function() {
+    configState.servicePrice = parseInt(radio.value, 10);
+    const labels = { '0': 'Levering (gratis)', '99': 'Levering + Installatie', '179': 'Volledig ontzorgd' };
+    configState.serviceName = labels[radio.value] || '';
+    updateConfigTotal();
+  });
+});
+
+// ── ORDER POPUP ──────────────────────────────────────────────────
+function openOrderPopup() {
+  const accTotal = configState.accessories.reduce((s, a) => s + a.price, 0);
+  const total    = configState.price + accTotal + configState.servicePrice;
+
+  const img = document.getElementById('sumImg');
+  if (img) img.src = configState.img;
+
+  const items = document.getElementById('sumItems');
+  if (items) {
+    let html = '<strong>' + configState.name + '</strong> (' + configState.kwh + ' kWh)<br>';
+    html += '<span style="opacity:.6; font-size:12px;">' + configState.modules + '</span><br><br>';
+    configState.accessories.forEach(function(a) {
+      html += a.label + ' <span style="opacity:.6;">+€' + a.price + '</span><br>';
+    });
+    html += configState.serviceName + ' <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
+    items.innerHTML = html;
+  }
+
+  const sumTotal = document.getElementById('sumTotal');
+  if (sumTotal) sumTotal.textContent = fmtPrice(total);
+
+  const hidden = document.getElementById('hiddenConfiguratie');
+  if (hidden) {
+    const accNames = configState.accessories.map(a => a.label).join(', ') || 'geen';
+    hidden.value = configState.name + ' ' + configState.kwh + ' kWh | Accessoires: ' + accNames + ' | Service: ' + configState.serviceName + ' | Totaal: ' + fmtPrice(total);
+  }
+
+  const orderForm = document.getElementById('orderForm');
+  const orderSuccess = document.getElementById('orderSuccess');
+  if (orderForm)    { orderForm.style.display = ''; orderForm.reset(); }
+  if (orderSuccess) orderSuccess.style.display = 'none';
+
+  openModal('modal-order');
+}
+
+// Order form submit
+(function() {
+  const form = document.getElementById('orderForm');
+  if (!form) return;
+  const submitBtn = document.getElementById('orderSubmitBtn');
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Verzenden...';
+
+    const formData = new FormData(form);
+    const object   = Object.fromEntries(formData);
+
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify(object)
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        form.style.display = 'none';
+        document.getElementById('orderSuccess').style.display = 'block';
+      } else {
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Aanvraag verzenden →';
+        alert('Er ging iets mis. Probeer het opnieuw of mail ons direct.');
+      }
+    } catch (err) {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Aanvraag verzenden →';
+      alert('Verbindingsfout. Controleer je internet en probeer opnieuw.');
+    }
+  });
+})();
+
+// GALLERY SLIDESHOW (fade)
+(function() {
+  const slider = document.getElementById('gallerySlider');
+  if (!slider) return;
+  const slides = slider.querySelectorAll('.gallery-slide');
+  const dotsWrap = document.getElementById('galleryDots');
+  const total = slides.length;
+  let current = 0;
+
+  slides.forEach((_, i) => {
+    const d = document.createElement('span');
+    d.className = 'gallery-dot' + (i === 0 ? ' active' : '');
+    dotsWrap.appendChild(d);
+  });
+  const dots = dotsWrap.querySelectorAll('.gallery-dot');
+
+  function goTo(idx) {
+    slides[current].classList.remove('active');
+    dots[current].classList.remove('active');
+    current = (idx + total) % total;
+    slides[current].classList.add('active');
+    dots[current].classList.add('active');
+  }
+
+  setInterval(() => goTo(current + 1), 4000);
+})();
+
+// Smooth scroll for nav links
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    const href = this.getAttribute('href');
+    if (!href || href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Animate on scroll
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.opacity = '1';
+      entry.target.style.transform = 'translateY(0)';
+      observer.unobserve(entry.target);
+    }
+  });
+}, { threshold: 0.12 });
+
+document.querySelectorAll('.why-card, .package-card, .service-card, .step, .acc-card, .cert-item').forEach(el => {
+  observer.observe(el);
+});
+
+// Mobile hamburger menu
+const hamburger = document.getElementById('navHamburger');
+const mobileNav = document.getElementById('mobileNav');
+
+hamburger.addEventListener('click', function() {
+  const isOpen = mobileNav.classList.toggle('open');
+  hamburger.classList.toggle('open', isOpen);
+  hamburger.setAttribute('aria-expanded', isOpen);
+  mobileNav.setAttribute('aria-hidden', !isOpen);
+});
+
+mobileNav.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', function() {
+    mobileNav.classList.remove('open');
+    hamburger.classList.remove('open');
+    hamburger.setAttribute('aria-expanded', 'false');
+    mobileNav.setAttribute('aria-hidden', 'true');
+  });
+});
+
+// Modal open / close
+function openModal(id) {
+  document.getElementById(id).classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(id) {
+  document.getElementById(id).classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+document.querySelectorAll('.modal-overlay').forEach(function(overlay) {
+  overlay.addEventListener('click', function(e) {
+    if (e.target === overlay) closeModal(overlay.id);
+  });
+});
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m) {
+      closeModal(m.id);
+    });
+  }
+});
