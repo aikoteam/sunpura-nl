@@ -247,20 +247,13 @@ nav {
   position: sticky;
   top: 0;
   height: 92vh;
-  background: var(--dark);
-  border-right: none;
+  background: var(--light);
+  border-right: 1px solid var(--border);
   display: flex;
   align-items: flex-end;
   justify-content: center;
   padding: 40px 32px 0;
   overflow: hidden;
-}
-.hero-visual::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(ellipse 90% 70% at 50% 100%, rgba(34,162,97,0.14) 0%, transparent 65%);
-  pointer-events: none;
 }
 #configImg {
   max-height: 84vh;
@@ -268,7 +261,7 @@ nav {
   max-width: 100%;
   object-fit: contain;
   object-position: bottom center;
-  filter: drop-shadow(0 40px 80px rgba(0,0,0,0.65));
+  filter: drop-shadow(0 24px 48px rgba(0,0,0,0.12));
   transition: opacity 0.3s ease;
   position: relative;
   z-index: 1;
@@ -1585,7 +1578,7 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 900px) {
   .hero { grid-template-columns: 1fr; min-height: auto; }
-  .hero-visual { position: static; height: 56vw; min-height: 260px; max-height: 420px; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 28px 20px 0; }
+  .hero-visual { position: static; height: 56vw; min-height: 260px; max-height: 420px; border-right: none; border-bottom: 1px solid var(--border); padding: 28px 20px 0; }
   .hero-content { padding: 36px 24px 48px; }
   .config-acc-grid { grid-template-columns: 1fr; }
   .config-service-grid { grid-template-columns: 1fr; }
