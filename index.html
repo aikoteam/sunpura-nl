@@ -329,7 +329,7 @@
           <div class="row"><span class="key">Batterijtype</span><span class="val good">LiFePO₄</span></div>
           <div class="row"><span class="key">Capaciteit per module</span><span class="val">2,4 kWh</span></div>
           <div class="row"><span class="key">Max. capaciteit</span><span class="val">9,6 kWh (4 modules)</span></div>
-          <div class="row"><span class="key">On-grid vermogen</span><span class="val">800 W</span></div>
+          <div class="row"><span class="key">On-grid vermogen</span><span class="val">800 W <span style="opacity:.55; font-size:11px;">(instelbaar tot 2.400 W)</span></span></div>
           <div class="row"><span class="key">Off-grid vermogen</span><span class="val">2.400 W</span></div>
           <div class="row"><span class="key">Piek-vermogen</span><span class="val">3.600 W (5 sec.)</span></div>
           <div class="row"><span class="key">MPPT-ingangen</span><span class="val">2× (10–100V, 16A)</span></div>
@@ -592,6 +592,14 @@
         </button>
         <div class="faq-a">Ja. De S2400 heeft een ingebouwde UPS-functie. Bij stroomuitval schakelt het systeem automatisch over op batterijvermogen en levert tot 2.400W off-grid aan essentiële apparaten.</div>
       </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Kan ik het on-grid vermogen verhogen boven 800W?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">Ja. Standaard is de S2400 ingesteld op 800W teruglevering — het wettelijk maximum voor een gewoon stopcontact (230V/16A groep). Via de app kun je dit verhogen tot maximaal 2.400W, mits de batterij is aangesloten op een <strong>eigen groep</strong> waarop geen andere verbruikers zijn aangesloten. Zo'n dedicated groep levert tot 3.680W (230V × 16A), waardoor de S2400 voluit kan werken zonder de zekering te belasten. Controleer dit altijd met een elektricien als je twijfelt over je groepenkast.</div>
+      </div>
+
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">
           Hoeveel kan ik besparen?
