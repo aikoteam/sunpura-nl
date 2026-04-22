@@ -51,7 +51,7 @@ const configState = {
 };
 
 function fmtPrice(n) {
-  return '€' + n.toLocaleString('nl-NL');
+  return '€' + n.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
 }
 
 function updateConfigTotal() {
