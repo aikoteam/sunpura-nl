@@ -38,7 +38,7 @@ function toggleFaq(btn) {
 
 // ── CONFIGURATOR STATE ──────────────────────────────────────────
 const configState = {
-  price: 967,
+  price: 960,
   oldPrice: 1404,
   kwh: '2,4',
   img: 'images/product-2-4kwh.png',
@@ -207,8 +207,36 @@ function openOrderPopup() {
   if (!form) return;
   const submitBtn = document.getElementById('orderSubmitBtn');
 
+  const errorMsg = document.getElementById('formErrorMsg');
+  const requiredFields = form.querySelectorAll('[required]');
+
+  requiredFields.forEach(function(field) {
+    field.addEventListener('input', function() {
+      if (field.value.trim()) field.classList.remove('field-invalid');
+      if (form.querySelectorAll('.field-invalid').length === 0 && errorMsg) {
+        errorMsg.style.visibility = 'hidden';
+      }
+    });
+  });
+
   form.addEventListener('submit', async function(e) {
     e.preventDefault();
+
+    const invalid = [];
+    requiredFields.forEach(function(field) {
+      field.classList.remove('field-invalid');
+      if (!field.value.trim()) {
+        field.classList.add('field-invalid');
+        invalid.push(field);
+      }
+    });
+    if (invalid.length > 0) {
+      if (errorMsg) errorMsg.style.visibility = 'visible';
+      invalid[0].focus();
+      return;
+    }
+    if (errorMsg) errorMsg.style.visibility = 'hidden';
+
     submitBtn.disabled = true;
     submitBtn.textContent = 'Verzenden...';
 

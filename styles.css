@@ -913,6 +913,7 @@ section { padding: 80px 2rem; }
 .form-textarea { resize: vertical; min-height: 80px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
 .form-note { font-size: 11px; color: var(--grey); margin-top: 12px; line-height: 1.5; }
+.field-invalid { border-color: #e05252 !important; box-shadow: 0 0 0 2px rgba(224,82,82,.18) !important; }
 
 .form-submit {
   width: 100%;
