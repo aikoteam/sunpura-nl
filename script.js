@@ -113,17 +113,22 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
   });
 });
 
-// Extra Smart Plug addon
-(function() {
-  const el = document.getElementById('addonPlug');
+// Addon checkboxes
+[
+  { id: 'addonPlug',    label: 'Extra Smart Plug' },
+  { id: 'addonGlass420', label: 'Glazen zonnepanelen 420W' },
+  { id: 'addonFlex2',   label: 'Flexibele zonnepanelen 2×200W' },
+  { id: 'addonFlex4',   label: 'Flexibele zonnepanelen 4×200W' }
+].forEach(function(item) {
+  const el = document.getElementById(item.id);
   if (!el) return;
   el.addEventListener('change', function() {
     const price = parseInt(el.value, 10);
-    configState.addons = configState.addons.filter(a => a.id !== 'addonPlug');
-    if (el.checked) configState.addons.push({ id: 'addonPlug', label: 'Extra Smart Plug', price: price });
+    configState.addons = configState.addons.filter(a => a.id !== item.id);
+    if (el.checked) configState.addons.push({ id: item.id, label: item.label, price: price });
     updateConfigTotal();
   });
-})();
+});
 
 // Service radios
 document.querySelectorAll('input[name="cfgService"]').forEach(function(radio) {
