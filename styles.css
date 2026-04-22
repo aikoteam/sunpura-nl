@@ -267,17 +267,17 @@ nav {
   background: var(--light);
   border-right: 1px solid var(--border);
   display: flex;
-  align-items: flex-end;
+  align-items: center;
   justify-content: center;
-  padding: 40px 32px 0;
+  padding: 40px 32px;
   overflow: hidden;
 }
 #configImg {
-  max-height: 84vh;
+  max-height: 80vh;
   width: auto;
   max-width: 100%;
   object-fit: contain;
-  object-position: bottom center;
+  object-position: center;
   filter: drop-shadow(0 24px 48px rgba(0,0,0,0.12));
   transition: opacity 0.3s ease;
   position: relative;
