@@ -1,4 +1,18 @@
 // ── COOKIE CONSENT ──────────────────────────────────────────────
+function loadGoogleAnalytics() {
+  if (window._gaLoaded) return;
+  window._gaLoaded = true;
+  var s = document.createElement('script');
+  s.async = true;
+  s.src = 'https://www.googletagmanager.com/gtag/js?id=G-05Q1EXX61L';
+  document.head.appendChild(s);
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  window.gtag = gtag;
+  gtag('js', new Date());
+  gtag('config', 'G-05Q1EXX61L');
+}
+
 function loadMetaPixel() {
   if (window._metaPixelLoaded) return;
   window._metaPixelLoaded = true;
@@ -15,12 +29,16 @@ function setCookieConsent(choice) {
   localStorage.setItem('cookie_consent', choice);
   const banner = document.getElementById('cookieBanner');
   if (banner) banner.classList.add('hidden');
-  if (choice === 'accepted') loadMetaPixel();
+  if (choice === 'accepted') {
+    loadGoogleAnalytics();
+    loadMetaPixel();
+  }
 }
 
 (function initCookieConsent() {
   const consent = localStorage.getItem('cookie_consent');
   if (consent === 'accepted') {
+    loadGoogleAnalytics();
     loadMetaPixel();
   }
   if (consent !== null) {
