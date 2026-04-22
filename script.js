@@ -157,7 +157,8 @@ function openOrderPopup() {
     configState.addons.forEach(function(a) {
       html += a.label + ' <span style="opacity:.6;">+€' + a.price + '</span><br>';
     });
-    html += '<br>' + configState.serviceName + ' <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
+    html += '<br><span style="opacity:.4; font-size:11px; display:block; border-top:1px solid rgba(255,255,255,.1); padding-top:8px; margin-top:4px; text-transform:uppercase; letter-spacing:.05em;">Service</span>';
+    html += '<strong>' + configState.serviceName + '</strong> <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
     items.innerHTML = html;
   }
 
