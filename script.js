@@ -58,7 +58,7 @@ function toggleFaq(btn) {
 const configState = {
   price: 960,
   kwh: '2,4',
-  img: 'images/product-2-4kwh.png',
+  img: '/images/product-2-4kwh.png',
   name: 'S2400 Basis',
   modules: 'A2400 + 1× B2400',
   addons: [],
