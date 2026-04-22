@@ -167,8 +167,29 @@ function openOrderPopup() {
   const hidden = document.getElementById('hiddenConfiguratie');
   if (hidden) {
     const giftLabel = configState.giftCombo === 'homewizard' ? '2x Smart Plug' : 'P1 Meter + Smart Plug';
-    const addonNames = configState.addons.map(a => a.label).join(', ') || 'geen';
-    hidden.value = configState.name + ' ' + configState.kwh + ' kWh | Gift: ' + giftLabel + ' | Aanvullingen: ' + addonNames + ' | Service: ' + configState.serviceName + ' | Totaal: ' + fmtPrice(total);
+    var lines = [];
+    lines.push('=== BESTELLING ===');
+    lines.push('');
+    lines.push('Sunpura ' + configState.name + ' · ' + configState.kwh + ' kWh');
+    lines.push('  Modules: ' + configState.modules);
+    lines.push('  Prijs: ' + fmtPrice(configState.price));
+    lines.push('');
+    lines.push('Gratis accessoires: ' + giftLabel);
+    lines.push('  Prijs: €0');
+    if (configState.addons.length > 0) {
+      lines.push('');
+      lines.push('Aanvullingen:');
+      configState.addons.forEach(function(a) {
+        lines.push('  ' + a.label + ' · ' + fmtPrice(a.price));
+      });
+    }
+    lines.push('');
+    lines.push('Service: ' + configState.serviceName);
+    lines.push('  Prijs: ' + (configState.servicePrice > 0 ? fmtPrice(configState.servicePrice) : 'gratis'));
+    lines.push('');
+    lines.push('──────────────────');
+    lines.push('TOTAAL incl. BTW: ' + fmtPrice(total));
+    hidden.value = lines.join('\n');
   }
 
   const orderForm = document.getElementById('orderForm');
