@@ -1490,7 +1490,7 @@ footer {
 }
 .config-gift-iname { font-size: 12px; font-weight: 600; color: var(--dark); line-height: 1.3; }
 .config-gift-ival { font-size: 10px; color: var(--muted); text-decoration: line-through; }
-.config-gift-free { text-decoration: none; color: var(--dark); font-weight: 700; font-size: 13px; margin-left: 4px; }
+.config-gift-free { text-decoration: none; color: #aaa; font-weight: 600; font-size: 11px; margin-left: 4px; }
 .config-gift-idesc { font-size: 10px; color: var(--muted); line-height: 1.3; margin-top: 2px; }
 .config-gift-toggle {
   display: flex; align-items: flex-start; gap: 7px;

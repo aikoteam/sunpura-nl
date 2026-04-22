@@ -73,12 +73,12 @@ function toggleGiftCombo(hasHomeWizard) {
   const plugVal = document.getElementById('giftPlugVal');
   if (hasHomeWizard) {
     if (p1Item) p1Item.style.display = 'none';
-    if (plugName) plugName.textContent = 'Smart Plug ×2';
-    if (plugVal) plugVal.textContent = 't.w.v. €46';
+    if (plugName) plugName.innerHTML = 'Smart Plug ×2 <span class="config-gift-free">€0,00</span>';
+    if (plugVal) plugVal.textContent = 't.w.v. €46,00';
   } else {
     if (p1Item) p1Item.style.display = '';
-    if (plugName) plugName.textContent = 'Smart Plug';
-    if (plugVal) plugVal.textContent = 't.w.v. €23';
+    if (plugName) plugName.innerHTML = 'Smart Plug <span class="config-gift-free">€0,00</span>';
+    if (plugVal) plugVal.textContent = 't.w.v. €23,00';
   }
 }
 
