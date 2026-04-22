@@ -44,7 +44,8 @@ const configState = {
   img: 'images/product-2-4kwh.png',
   name: 'S2400 Basis',
   modules: 'A2400 + 1× B2400',
-  accessories: [],
+  addons: [],
+  giftCombo: 'standard',
   servicePrice: 99,
   serviceName: 'Levering + Installatie'
 };
@@ -54,8 +55,8 @@ function fmtPrice(n) {
 }
 
 function updateConfigTotal() {
-  const accTotal = configState.accessories.reduce((s, a) => s + a.price, 0);
-  const total = configState.price + accTotal + configState.servicePrice;
+  const addonTotal = configState.addons.reduce((s, a) => s + a.price, 0);
+  const total = configState.price + addonTotal + configState.servicePrice;
   const el = document.getElementById('configTotal');
   if (el) el.textContent = fmtPrice(total);
 
@@ -63,6 +64,22 @@ function updateConfigTotal() {
   const prodName = document.getElementById('configProductName');
   if (priceNew) priceNew.textContent = fmtPrice(configState.price);
   if (prodName) prodName.textContent = 'Sunpura S2400 ' + configState.name.replace('S2400 ', '') + ' · ' + configState.kwh + ' kWh';
+}
+
+function toggleGiftCombo(hasHomeWizard) {
+  configState.giftCombo = hasHomeWizard ? 'homewizard' : 'standard';
+  const p1Item = document.getElementById('giftItemP1');
+  const plugName = document.getElementById('giftPlugName');
+  const plugVal = document.getElementById('giftPlugVal');
+  if (hasHomeWizard) {
+    if (p1Item) p1Item.style.display = 'none';
+    if (plugName) plugName.textContent = 'Smart Plug ×2';
+    if (plugVal) plugVal.textContent = 't.w.v. €46';
+  } else {
+    if (p1Item) p1Item.style.display = '';
+    if (plugName) plugName.textContent = 'Smart Plug';
+    if (plugVal) plugVal.textContent = 't.w.v. €23';
+  }
 }
 
 // Capacity buttons
@@ -96,18 +113,17 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
   });
 });
 
-// Accessory checkboxes
-['accP1', 'accPlug'].forEach(function(id) {
-  const el = document.getElementById(id);
+// Extra Smart Plug addon
+(function() {
+  const el = document.getElementById('addonPlug');
   if (!el) return;
   el.addEventListener('change', function() {
-    const label = id === 'accP1' ? 'Sunpura P1 Meter' : 'Sunpura Smart Plug';
     const price = parseInt(el.value, 10);
-    configState.accessories = configState.accessories.filter(a => a.id !== id);
-    if (el.checked) configState.accessories.push({ id: id, label: label, price: price });
+    configState.addons = configState.addons.filter(a => a.id !== 'addonPlug');
+    if (el.checked) configState.addons.push({ id: 'addonPlug', label: 'Extra Smart Plug', price: price });
     updateConfigTotal();
   });
-});
+})();
 
 // Service radios
 document.querySelectorAll('input[name="cfgService"]').forEach(function(radio) {
@@ -121,8 +137,8 @@ document.querySelectorAll('input[name="cfgService"]').forEach(function(radio) {
 
 // ── ORDER POPUP ──────────────────────────────────────────────────
 function openOrderPopup() {
-  const accTotal = configState.accessories.reduce((s, a) => s + a.price, 0);
-  const total    = configState.price + accTotal + configState.servicePrice;
+  const addonTotal = configState.addons.reduce((s, a) => s + a.price, 0);
+  const total      = configState.price + addonTotal + configState.servicePrice;
 
   const img = document.getElementById('sumImg');
   if (img) img.src = configState.img;
@@ -131,10 +147,12 @@ function openOrderPopup() {
   if (items) {
     let html = '<strong>' + configState.name + '</strong> (' + configState.kwh + ' kWh)<br>';
     html += '<span style="opacity:.6; font-size:12px;">' + configState.modules + '</span><br><br>';
-    configState.accessories.forEach(function(a) {
+    const giftLabel = configState.giftCombo === 'homewizard' ? '2× Smart Plug' : 'P1 Meter + Smart Plug';
+    html += '🎁 <span style="color:#4dd98a;">Gratis: ' + giftLabel + '</span><br>';
+    configState.addons.forEach(function(a) {
       html += a.label + ' <span style="opacity:.6;">+€' + a.price + '</span><br>';
     });
-    html += configState.serviceName + ' <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
+    html += '<br>' + configState.serviceName + ' <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
     items.innerHTML = html;
   }
 
@@ -143,8 +161,9 @@ function openOrderPopup() {
 
   const hidden = document.getElementById('hiddenConfiguratie');
   if (hidden) {
-    const accNames = configState.accessories.map(a => a.label).join(', ') || 'geen';
-    hidden.value = configState.name + ' ' + configState.kwh + ' kWh | Accessoires: ' + accNames + ' | Service: ' + configState.serviceName + ' | Totaal: ' + fmtPrice(total);
+    const giftLabel = configState.giftCombo === 'homewizard' ? '2x Smart Plug' : 'P1 Meter + Smart Plug';
+    const addonNames = configState.addons.map(a => a.label).join(', ') || 'geen';
+    hidden.value = configState.name + ' ' + configState.kwh + ' kWh | Gift: ' + giftLabel + ' | Aanvullingen: ' + addonNames + ' | Service: ' + configState.serviceName + ' | Totaal: ' + fmtPrice(total);
   }
 
   const orderForm = document.getElementById('orderForm');

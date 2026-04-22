@@ -94,24 +94,30 @@
           </div>
         </div>
 
-        <div class="config-section">
-          <div class="config-label">Accessoires <span style="font-weight:400;text-transform:none;font-family:var(--sans);letter-spacing:0;font-size:11px;">(optioneel)</span></div>
-          <div class="config-acc-grid">
-            <label class="config-check-item">
-              <input type="checkbox" id="accP1" value="25">
-              <div class="config-item-info">
-                <span class="config-item-name">P1 Meter <span class="config-item-price">+€25</span></span>
-                <span class="config-item-desc">Zorgt dat je zonne-energie zelf gebruikt i.p.v. terug te leveren — de batterij laadt automatisch bij zodra je panelen meer produceren dan je verbruikt.</span>
+        <div class="config-section config-gift-section">
+          <div class="config-label">🎁 Gratis inbegrepen bij elke S2400</div>
+          <div class="config-gift-items">
+            <div class="config-gift-item" id="giftItemP1">
+              <img src="images/acc-p1-meter.jpg" alt="P1 Meter">
+              <div class="config-gift-info">
+                <span class="config-gift-badge">GRATIS</span>
+                <span class="config-gift-iname">P1 Meter</span>
+                <span class="config-gift-ival">t.w.v. €25</span>
               </div>
-            </label>
-            <label class="config-check-item">
-              <input type="checkbox" id="accPlug" value="23">
-              <div class="config-item-info">
-                <span class="config-item-name">Smart Plug <span class="config-item-price">+€23</span></span>
-                <span class="config-item-desc">Sluit je wasmachine of vaatwasser aan — de app start ze automatisch op wanneer je panelen een overschot hebben.</span>
+            </div>
+            <div class="config-gift-item">
+              <img src="images/acc-smart-plug.jpg" alt="Smart Plug">
+              <div class="config-gift-info">
+                <span class="config-gift-badge">GRATIS</span>
+                <span class="config-gift-iname" id="giftPlugName">Smart Plug</span>
+                <span class="config-gift-ival" id="giftPlugVal">t.w.v. €23</span>
               </div>
-            </label>
+            </div>
           </div>
+          <label class="config-gift-toggle">
+            <input type="checkbox" id="hasHomeWizard" onchange="toggleGiftCombo(this.checked)">
+            <span>Ik heb al een HomeWizard P1 Meter → dan krijg je 2× Smart Plug</span>
+          </label>
         </div>
 
         <div class="config-section">
@@ -146,6 +152,18 @@
           <div class="config-note">Geen betaling nu<br>Wij nemen contact op</div>
         </div>
         <button class="config-cta" onclick="openOrderPopup()">Aanvragen →</button>
+
+        <div class="config-addons">
+          <div class="config-addons-header">Aanvullingen <span>(optioneel)</span></div>
+          <label class="config-addon-row">
+            <input type="checkbox" class="config-addon-check" id="addonPlug" value="23">
+            <img src="images/acc-smart-plug.jpg" alt="Extra Smart Plug" class="config-addon-img">
+            <div class="config-addon-info">
+              <span class="config-addon-name">Extra Smart Plug <span class="config-addon-price-tag">+€23</span></span>
+              <span class="config-addon-desc">Stuur een extra apparaat automatisch op zonne-energie — wasmachine, vaatwasser of boiler</span>
+            </div>
+          </label>
+        </div>
 
       </div>
     </div>
