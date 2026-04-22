@@ -51,7 +51,7 @@ const configState = {
 };
 
 function fmtPrice(n) {
-  return '€' + n.toLocaleString('nl-NL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  return '€' + n.toLocaleString('nl-NL');
 }
 
 function updateConfigTotal() {
@@ -73,12 +73,12 @@ function toggleGiftCombo(hasHomeWizard) {
   const plugVal = document.getElementById('giftPlugVal');
   if (hasHomeWizard) {
     if (p1Item) p1Item.style.display = 'none';
-    if (plugName) plugName.innerHTML = 'Smart Plug ×2 <span class="config-gift-free">€0,00</span>';
-    if (plugVal) plugVal.textContent = 't.w.v. €46,00';
+    if (plugName) plugName.innerHTML = 'Smart Plug ×2 <span class="config-gift-free">€0</span>';
+    if (plugVal) plugVal.textContent = 't.w.v. €46';
   } else {
     if (p1Item) p1Item.style.display = '';
-    if (plugName) plugName.innerHTML = 'Smart Plug <span class="config-gift-free">€0,00</span>';
-    if (plugVal) plugVal.textContent = 't.w.v. €23,00';
+    if (plugName) plugName.innerHTML = 'Smart Plug <span class="config-gift-free">€0</span>';
+    if (plugVal) plugVal.textContent = 't.w.v. €23';
   }
 }
 
