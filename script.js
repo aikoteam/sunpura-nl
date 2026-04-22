@@ -39,7 +39,6 @@ function toggleFaq(btn) {
 // ── CONFIGURATOR STATE ──────────────────────────────────────────
 const configState = {
   price: 960,
-  oldPrice: 1404,
   kwh: '2,4',
   img: 'images/product-2-4kwh.png',
   name: 'S2400 Basis',
@@ -88,9 +87,8 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
     document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    configState.price    = parseInt(btn.dataset.price, 10);
-    configState.oldPrice = parseInt(btn.dataset.oldPrice, 10);
-    configState.kwh      = btn.dataset.kwh;
+    configState.price   = parseInt(btn.dataset.price, 10);
+    configState.kwh     = btn.dataset.kwh;
     configState.name     = btn.dataset.name;
     configState.modules  = btn.dataset.modules;
 
@@ -108,6 +106,9 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
     configState.img = newImg;
 
     if (badge) badge.classList.toggle('visible', configState.kwh === '4,8' && configState.name !== 'B2400 Uitbreiding');
+
+    const giftSection = document.querySelector('.config-gift-section');
+    if (giftSection) giftSection.style.display = configState.name === 'B2400 Uitbreiding' ? 'none' : '';
 
     updateConfigTotal();
   });
