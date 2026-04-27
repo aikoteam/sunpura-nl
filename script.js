@@ -217,6 +217,7 @@ function openOrderPopup() {
   if (orderForm)    { orderForm.style.display = ''; orderForm.reset(); }
   if (orderSuccess) orderSuccess.style.display = 'none';
 
+  if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
   openModal('modal-order');
 }
 
@@ -271,9 +272,21 @@ function openOrderPopup() {
       const result = await response.json();
 
       if (result.success) {
-        form.style.display = 'none';
-        document.getElementById('orderSuccess').style.display = 'block';
+        var naam = (form.querySelector('[name="voornaam"]') || {}).value || '';
+        localStorage.setItem('adsio_order', JSON.stringify({
+          naam: naam,
+          product: 'Sunpura ' + configState.name + ' · ' + configState.kwh + ' kWh',
+          basePrice: fmtPrice(configState.price),
+          gift: configState.giftCombo === 'homewizard' ? '2× Smart Plug' : 'P1 Meter + Smart Plug',
+          addons: configState.addons,
+          service: configState.serviceName,
+          servicePrice: configState.servicePrice,
+          total: fmtPrice(configState.price + configState.addons.reduce(function(s,a){return s+a.price;},0) + configState.servicePrice),
+          img: configState.img
+        }));
         if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
+        window.location.href = '/bedankt/';
       } else {
         submitBtn.disabled = false;
         submitBtn.textContent = 'Aanvraag verzenden →';
