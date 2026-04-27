@@ -284,8 +284,6 @@ function openOrderPopup() {
           total: fmtPrice(configState.price + configState.addons.reduce(function(s,a){return s+a.price;},0) + configState.servicePrice),
           img: configState.img
         }));
-        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
-        if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
         window.location.href = '/bedankt/';
       } else {
         submitBtn.disabled = false;

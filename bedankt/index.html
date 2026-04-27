@@ -252,6 +252,9 @@
     document.getElementById('bedanktRows').innerHTML = rows;
     document.getElementById('bedanktTotal').textContent = o.total || '';
     document.getElementById('bedanktOrderBox').style.display = 'block';
+
+    if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+    if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
   } catch(e) {}
 })();
 </script>
