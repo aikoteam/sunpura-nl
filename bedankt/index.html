@@ -17,11 +17,15 @@
     }
     .bedankt-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 48px;
       align-items: center;
-      max-width: 900px;
+      max-width: 560px;
       width: 100%;
+    }
+    .bedankt-grid.has-order {
+      grid-template-columns: 1fr 1fr;
+      max-width: 900px;
     }
     .bedankt-left {
       text-align: center;
@@ -145,7 +149,7 @@
     }
 
     @media (max-width: 680px) {
-      .bedankt-grid {
+      .bedankt-grid.has-order {
         grid-template-columns: 1fr;
         gap: 24px;
       }
@@ -252,6 +256,7 @@
     document.getElementById('bedanktRows').innerHTML = rows;
     document.getElementById('bedanktTotal').textContent = o.total || '';
     document.getElementById('bedanktOrderBox').style.display = 'block';
+    document.querySelector('.bedankt-grid').classList.add('has-order');
 
     if (typeof fbq !== 'undefined') fbq('track', 'Lead');
     if (typeof gtag !== 'undefined') gtag('event', 'generate_lead');
