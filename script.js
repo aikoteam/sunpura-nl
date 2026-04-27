@@ -29,6 +29,7 @@ function setCookieConsent(choice) {
   localStorage.setItem('cookie_consent', choice);
   const banner = document.getElementById('cookieBanner');
   if (banner) banner.classList.add('hidden');
+  document.body.classList.remove('cookie-open');
   if (choice === 'accepted') {
     loadGoogleAnalytics();
     loadMetaPixel();
@@ -44,6 +45,8 @@ function setCookieConsent(choice) {
   if (consent !== null) {
     const banner = document.getElementById('cookieBanner');
     if (banner) banner.classList.add('hidden');
+  } else {
+    document.body.classList.add('cookie-open');
   }
 })();
 
