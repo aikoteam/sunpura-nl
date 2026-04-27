@@ -13,98 +13,52 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 60px 20px;
+      padding: 60px 24px;
     }
-    .bedankt-card {
-      max-width: 560px;
+    .bedankt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 48px;
+      align-items: center;
+      max-width: 900px;
       width: 100%;
+    }
+    .bedankt-left {
       text-align: center;
     }
     .bedankt-check {
-      width: 76px;
-      height: 76px;
+      width: 72px;
+      height: 72px;
       background: var(--green);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
-      margin: 0 auto 28px;
+      margin: 0 auto 24px;
       box-shadow: 0 8px 24px rgba(26,122,74,.25);
     }
     .bedankt-title {
-      font-size: clamp(26px, 5vw, 38px);
+      font-size: clamp(24px, 4vw, 36px);
       font-weight: 800;
       color: var(--dark);
       margin: 0 0 12px;
       line-height: 1.2;
     }
     .bedankt-sub {
-      font-size: 16px;
+      font-size: 15px;
       color: var(--grey);
-      margin: 0 0 36px;
-      line-height: 1.6;
-    }
-    .bedankt-order-box {
-      background: var(--dark);
-      border-radius: 16px;
-      padding: 28px;
-      text-align: left;
-      margin-bottom: 24px;
-    }
-    .bedankt-order-label {
-      font-size: 11px;
-      text-transform: uppercase;
-      letter-spacing: .08em;
-      color: rgba(255,255,255,.4);
-      margin-bottom: 18px;
-    }
-    .bedankt-order-img {
-      width: 110px;
-      border-radius: 10px;
-      display: block;
-      margin: 0 auto 20px;
-    }
-    .bedankt-order-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      font-size: 14px;
-      color: rgba(255,255,255,.8);
-      padding: 7px 0;
-      border-bottom: 1px solid rgba(255,255,255,.07);
-      gap: 12px;
-    }
-    .bedankt-order-row:last-of-type { border-bottom: none; }
-    .bedankt-order-row span:first-child { flex: 1; }
-    .bedankt-order-row span:last-child { white-space: nowrap; opacity: .7; }
-    .bedankt-order-divider {
-      border: none;
-      border-top: 1px solid rgba(255,255,255,.12);
-      margin: 16px 0;
-    }
-    .bedankt-order-total {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .bedankt-order-total-label {
-      font-size: 12px;
-      color: rgba(255,255,255,.45);
-    }
-    .bedankt-order-total-amount {
-      font-size: 24px;
-      font-weight: 800;
-      color: #4dd98a;
+      margin: 0 0 28px;
+      line-height: 1.65;
     }
     .bedankt-notice {
       background: var(--light);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 16px 20px;
+      padding: 14px 18px;
       font-size: 13px;
       color: var(--grey);
-      line-height: 1.8;
-      margin-bottom: 32px;
+      line-height: 1.85;
+      margin-bottom: 28px;
       text-align: left;
     }
     .bedankt-wa-btn {
@@ -115,11 +69,14 @@
       color: white;
       font-size: 15px;
       font-weight: 700;
-      padding: 15px 30px;
+      padding: 14px 28px;
       border-radius: 12px;
       text-decoration: none;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       transition: opacity .2s, transform .15s;
+      width: 100%;
+      justify-content: center;
+      box-sizing: border-box;
     }
     .bedankt-wa-btn:hover { opacity: .9; transform: translateY(-1px); }
     .bedankt-back {
@@ -127,10 +84,78 @@
       font-size: 13px;
       color: var(--muted);
       text-decoration: none;
-      margin-top: 4px;
       transition: color .2s;
     }
     .bedankt-back:hover { color: var(--dark); }
+
+    /* Right: order summary */
+    .bedankt-right {
+      display: none;
+    }
+    .bedankt-order-box {
+      background: var(--dark);
+      border-radius: 18px;
+      padding: 28px;
+      text-align: left;
+    }
+    .bedankt-order-label {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+      color: rgba(255,255,255,.38);
+      margin-bottom: 18px;
+    }
+    .bedankt-order-img {
+      width: 100px;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto 20px;
+    }
+    .bedankt-order-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      font-size: 13.5px;
+      color: rgba(255,255,255,.78);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(255,255,255,.07);
+      gap: 12px;
+    }
+    .bedankt-order-row:last-of-type { border-bottom: none; }
+    .bedankt-order-row span:first-child { flex: 1; }
+    .bedankt-order-row span:last-child { white-space: nowrap; opacity: .65; }
+    .bedankt-order-divider {
+      border: none;
+      border-top: 1px solid rgba(255,255,255,.1);
+      margin: 16px 0;
+    }
+    .bedankt-order-total {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .bedankt-order-total-label {
+      font-size: 12px;
+      color: rgba(255,255,255,.4);
+    }
+    .bedankt-order-total-amount {
+      font-size: 24px;
+      font-weight: 800;
+      color: #4dd98a;
+    }
+
+    @media (max-width: 680px) {
+      .bedankt-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+      }
+      .bedankt-right {
+        order: 1;
+      }
+      .bedankt-left {
+        order: 2;
+      }
+    }
   </style>
 </head>
 <body>
@@ -148,18 +173,37 @@
 </nav>
 
 <div class="bedankt-wrap">
-  <div class="bedankt-card">
+  <div class="bedankt-grid">
 
-    <div class="bedankt-check">
-      <svg width="36" height="36" viewBox="0 0 36 36" fill="none">
-        <path d="M8 19l6 6 14-14" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+    <!-- LEFT: thank you message -->
+    <div class="bedankt-left">
+      <div class="bedankt-check">
+        <svg width="34" height="34" viewBox="0 0 36 36" fill="none">
+          <path d="M8 19l6 6 14-14" stroke="white" stroke-width="2.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </div>
+      <h1 class="bedankt-title" id="bedanktTitle">Bedankt voor je aanvraag!</h1>
+      <p class="bedankt-sub">We nemen binnen <strong>1 werkdag</strong> contact op om je aanvraag te bevestigen en betaalinformatie te sturen.</p>
+
+      <div class="bedankt-notice">
+        ✅ Gratis levering in Limburg<br>
+        ✅ 14 dagen bedenktijd<br>
+        ✅ 10 jaar garantie via Sunpura<br>
+        💳 100% betaling bij ontvangst factuur
+      </div>
+
+      <a href="https://wa.me/31610267870" class="bedankt-wa-btn" target="_blank" rel="noopener">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+        Neem contact op via WhatsApp
+      </a>
+
+      <a href="/sunpura-s2400-thuisbatterij/" class="bedankt-back">← Terug naar productpagina</a>
     </div>
 
-    <h1 class="bedankt-title" id="bedanktTitle">Bedankt voor je aanvraag!</h1>
-    <p class="bedankt-sub">We nemen binnen <strong>1 werkdag</strong> contact op om je aanvraag te bevestigen en betaalinformatie te sturen.</p>
-
-    <div id="bedanktOrderBox" style="display:none;">
+    <!-- RIGHT: order summary (shown only when localStorage has data) -->
+    <div class="bedankt-right" id="bedanktOrderBox">
       <div class="bedankt-order-box">
         <div class="bedankt-order-label">Jouw bestelling</div>
         <img id="bedanktImg" class="bedankt-order-img" src="" alt="Sunpura S2400">
@@ -171,22 +215,6 @@
         </div>
       </div>
     </div>
-
-    <div class="bedankt-notice">
-      ✅ Gratis levering in Limburg<br>
-      ✅ 14 dagen bedenktijd<br>
-      ✅ 10 jaar garantie via Sunpura<br>
-      💳 100% betaling bij ontvangst factuur
-    </div>
-
-    <a href="https://wa.me/31610267870" class="bedankt-wa-btn" target="_blank" rel="noopener">
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="white">
-        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
-      </svg>
-      Neem contact op via WhatsApp
-    </a>
-
-    <a href="/sunpura-s2400-thuisbatterij/" class="bedankt-back">← Terug naar productpagina</a>
 
   </div>
 </div>
@@ -210,7 +238,7 @@
     var rows = '';
     rows += '<div class="bedankt-order-row"><span>' + (o.product || 'Sunpura S2400') + '</span><span>' + (o.basePrice || '') + '</span></div>';
     if (o.gift) {
-      rows += '<div class="bedankt-order-row"><span>🎁 ' + o.gift + '</span><span style="color:#4dd98a;">gratis</span></div>';
+      rows += '<div class="bedankt-order-row"><span>🎁 ' + o.gift + '</span><span style="color:#4dd98a; opacity:1;">gratis</span></div>';
     }
     if (o.addons && o.addons.length) {
       o.addons.forEach(function(a) {
@@ -218,12 +246,12 @@
       });
     }
     if (o.service) {
-      rows += '<div class="bedankt-order-row"><span>' + o.service + '</span><span>' + (o.servicePrice > 0 ? '+€' + o.servicePrice : '<span style="color:#4dd98a;">gratis</span>') + '</span></div>';
+      rows += '<div class="bedankt-order-row"><span>' + o.service + '</span><span>' + (o.servicePrice > 0 ? '+€' + o.servicePrice : '<span style="color:#4dd98a; opacity:1;">gratis</span>') + '</span></div>';
     }
 
     document.getElementById('bedanktRows').innerHTML = rows;
     document.getElementById('bedanktTotal').textContent = o.total || '';
-    document.getElementById('bedanktOrderBox').style.display = '';
+    document.getElementById('bedanktOrderBox').style.display = 'block';
   } catch(e) {}
 })();
 </script>
