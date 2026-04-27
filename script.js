@@ -385,12 +385,14 @@ document.querySelectorAll('.why-card, .package-card, .service-card, .step, .acc-
 const hamburger = document.getElementById('navHamburger');
 const mobileNav = document.getElementById('mobileNav');
 
-hamburger.addEventListener('click', function() {
-  const isOpen = mobileNav.classList.toggle('open');
-  hamburger.classList.toggle('open', isOpen);
-  hamburger.setAttribute('aria-expanded', isOpen);
-  mobileNav.setAttribute('aria-hidden', !isOpen);
-});
+if (hamburger && mobileNav) {
+  hamburger.addEventListener('click', function() {
+    const isOpen = mobileNav.classList.toggle('open');
+    hamburger.classList.toggle('open', isOpen);
+    hamburger.setAttribute('aria-expanded', isOpen);
+    mobileNav.setAttribute('aria-hidden', !isOpen);
+  });
+}
 
 mobileNav.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', function() {
