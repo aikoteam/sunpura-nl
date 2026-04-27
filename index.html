@@ -428,7 +428,7 @@
       if (data.success) {
         form.style.display = 'none';
         document.getElementById('contactSuccess').style.display = 'block';
-        if (typeof fbq !== 'undefined') fbq('track', 'Lead');
+        if (typeof fbq !== 'undefined') fbq('track', 'Contact');
         if (typeof gtag !== 'undefined') gtag('event', 'contact_form_submit');
       } else {
         submitBtn.disabled = false;
