@@ -394,14 +394,16 @@ if (hamburger && mobileNav) {
   });
 }
 
-mobileNav.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', function() {
-    mobileNav.classList.remove('open');
-    hamburger.classList.remove('open');
-    hamburger.setAttribute('aria-expanded', 'false');
-    mobileNav.setAttribute('aria-hidden', 'true');
+if (mobileNav && hamburger) {
+  mobileNav.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', function() {
+      mobileNav.classList.remove('open');
+      hamburger.classList.remove('open');
+      hamburger.setAttribute('aria-expanded', 'false');
+      mobileNav.setAttribute('aria-hidden', 'true');
+    });
   });
-});
+}
 
 // Modal open / close
 function openModal(id) {
