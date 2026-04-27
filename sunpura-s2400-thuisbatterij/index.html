@@ -1031,33 +1031,33 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label class="form-label">Voornaam *</label>
-              <input type="text" name="voornaam" class="form-input" placeholder="Jan" required>
+              <label class="form-label" for="f-voornaam">Voornaam *</label>
+              <input type="text" id="f-voornaam" name="voornaam" class="form-input" placeholder="Jan" required autocomplete="given-name">
             </div>
             <div class="form-group">
-              <label class="form-label">Achternaam *</label>
-              <input type="text" name="achternaam" class="form-input" placeholder="de Vries" required>
+              <label class="form-label" for="f-achternaam">Achternaam *</label>
+              <input type="text" id="f-achternaam" name="achternaam" class="form-input" placeholder="de Vries" required autocomplete="family-name">
             </div>
           </div>
 
           <div class="form-group">
-            <label class="form-label">E-mailadres *</label>
-            <input type="email" name="email" class="form-input" placeholder="jan@email.nl" required>
+            <label class="form-label" for="f-email">E-mailadres *</label>
+            <input type="email" id="f-email" name="email" class="form-input" placeholder="jan@email.nl" required autocomplete="email">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Telefoonnummer</label>
-            <input type="tel" name="telefoon" class="form-input" placeholder="06-12345678">
+            <label class="form-label" for="f-telefoon">Telefoonnummer</label>
+            <input type="tel" id="f-telefoon" name="telefoon" class="form-input" placeholder="06-12345678" autocomplete="tel">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Postcode + Woonplaats *</label>
-            <input type="text" name="postcode_woonplaats" class="form-input" placeholder="5901 AB · Venlo" required>
+            <label class="form-label" for="f-postcode">Postcode + Woonplaats *</label>
+            <input type="text" id="f-postcode" name="postcode_woonplaats" class="form-input" placeholder="5901 AB · Venlo" required autocomplete="postal-code">
           </div>
 
           <div class="form-group">
-            <label class="form-label">Opmerkingen of vragen</label>
-            <textarea name="opmerkingen" class="form-textarea" placeholder="Bijv.: heb al HomeWizard P1, wil koppeling met Home Assistant..."></textarea>
+            <label class="form-label" for="f-opmerkingen">Opmerkingen of vragen</label>
+            <textarea id="f-opmerkingen" name="opmerkingen" class="form-textarea" placeholder="Bijv.: heb al HomeWizard P1, wil koppeling met Home Assistant..." autocomplete="off"></textarea>
           </div>
 
           <label style="display:flex; align-items:flex-start; gap:8px; font-size:12px; color:var(--muted); cursor:pointer; margin-bottom:8px; line-height:1.4;">
