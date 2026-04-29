@@ -1741,7 +1741,7 @@ footer {
   .steps { grid-template-columns: 1fr; }
   .trust-bar { gap: 20px; }
   .hero-stats { grid-template-columns: repeat(3, 1fr); }
-  .form-row { grid-template-columns: 1fr; }
+  .form-row { grid-template-columns: 1fr; gap: 0; }
   .footer-inner { grid-template-columns: 1fr; }
   .nav-links { display: none; }
   .nav-hamburger { display: flex; }
