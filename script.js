@@ -186,6 +186,13 @@ function openOrderPopup() {
   const sumTotal = document.getElementById('sumTotal');
   if (sumTotal) sumTotal.textContent = fmtPrice(total);
 
+  const sumCompactName  = document.getElementById('sumCompactName');
+  const sumCompactGift  = document.getElementById('sumCompactGift');
+  const sumCompactTotal = document.getElementById('sumCompactTotal');
+  if (sumCompactName)  sumCompactName.textContent  = 'Sunpura ' + configState.name + ' · ' + configState.kwh + ' kWh';
+  if (sumCompactGift)  sumCompactGift.textContent  = '🎁 ' + (configState.giftCombo === 'homewizard' ? '2× Smart Plug' : 'P1 Meter + Smart Plug') + ' — gratis';
+  if (sumCompactTotal) sumCompactTotal.textContent = fmtPrice(total);
+
   const hidden = document.getElementById('hiddenConfiguratie');
   if (hidden) {
     const giftLabel = configState.giftCombo === 'homewizard' ? '2x Smart Plug' : 'P1 Meter + Smart Plug';
@@ -241,6 +248,9 @@ function setPopupService(price, name) {
 
   var sumTotalEl = document.getElementById('sumTotal');
   if (sumTotalEl) sumTotalEl.textContent = fmtPrice(total);
+
+  var sumCompactTotal = document.getElementById('sumCompactTotal');
+  if (sumCompactTotal) sumCompactTotal.textContent = fmtPrice(total);
 
   var hidden = document.getElementById('hiddenConfiguratie');
   if (hidden) {

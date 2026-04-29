@@ -1723,9 +1723,11 @@ footer {
   .gallery-slider { height: 360px; }
   .video-grid { grid-template-columns: 1fr; max-width: 560px; }
   .order-modal-grid { grid-template-columns: 1fr; }
-  .order-summary { padding: 24px 20px; }
+  .order-summary { padding: 16px 20px; }
   .order-form-side { padding: 24px 20px; }
   .order-sum-img { min-height: 90px; }
+  #sumImgWrap, #sumItems, #sumDivider, #sumNote, #sumGuarantees, #sumWijzig, #popupSvcSelector, #sumTotalBlock { display: none; }
+  #sumCompact { display: flex !important; }
 }
 
 @media (max-width: 600px) {
