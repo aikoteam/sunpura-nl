@@ -179,9 +179,8 @@ function openOrderPopup() {
     configState.addons.forEach(function(a) {
       html += a.label + ' <span style="opacity:.6;">+€' + a.price + '</span><br>';
     });
-    html += '<br><span style="opacity:.4; font-size:11px; display:block; border-top:1px solid rgba(255,255,255,.1); padding-top:8px; margin-top:4px; text-transform:uppercase; letter-spacing:.05em;">Service</span>';
-    html += '<strong>' + configState.serviceName + '</strong> <span style="opacity:.6;">' + (configState.servicePrice > 0 ? '+€' + configState.servicePrice : 'gratis') + '</span>';
     items.innerHTML = html;
+    updatePopupServiceBtns();
   }
 
   const sumTotal = document.getElementById('sumTotal');
@@ -222,6 +221,58 @@ function openOrderPopup() {
 
   if (typeof fbq !== 'undefined') fbq('track', 'InitiateCheckout');
   openModal('modal-order');
+}
+
+function updatePopupServiceBtns() {
+  document.querySelectorAll('.popup-svc-btn').forEach(function(btn) {
+    var active = parseInt(btn.dataset.popupSvc, 10) === configState.servicePrice;
+    btn.style.background    = active ? 'rgba(26,122,74,.28)' : 'rgba(255,255,255,.06)';
+    btn.style.borderColor   = active ? 'rgba(26,122,74,.55)' : 'rgba(255,255,255,.12)';
+    btn.style.color         = active ? '#fff' : 'rgba(255,255,255,.82)';
+  });
+}
+
+function setPopupService(price, name) {
+  configState.servicePrice = price;
+  configState.serviceName  = name;
+
+  var addonTotal = configState.addons.reduce(function(s,a){return s+a.price;},0);
+  var total = configState.price + addonTotal + price;
+
+  var sumTotalEl = document.getElementById('sumTotal');
+  if (sumTotalEl) sumTotalEl.textContent = fmtPrice(total);
+
+  var hidden = document.getElementById('hiddenConfiguratie');
+  if (hidden) {
+    var giftLabel = configState.giftCombo === 'homewizard' ? '2x Smart Plug' : 'P1 Meter + Smart Plug';
+    var lines = ['=== BESTELLING ===', ''];
+    lines.push('Sunpura ' + configState.name + ' · ' + configState.kwh + ' kWh');
+    lines.push('  Modules: ' + configState.modules);
+    lines.push('  Prijs: ' + fmtPrice(configState.price));
+    lines.push('');
+    lines.push('Gratis accessoires: ' + giftLabel);
+    lines.push('  Prijs: €0');
+    if (configState.addons.length > 0) {
+      lines.push('');
+      lines.push('Aanvullingen:');
+      configState.addons.forEach(function(a) {
+        lines.push('  ' + a.label + ' · ' + fmtPrice(a.price));
+      });
+    }
+    lines.push('');
+    lines.push('Service: ' + name);
+    lines.push('  Prijs: ' + (price > 0 ? fmtPrice(price) : 'gratis'));
+    lines.push('');
+    lines.push('──────────────────');
+    lines.push('TOTAAL incl. BTW: ' + fmtPrice(total));
+    hidden.value = lines.join('\n');
+  }
+
+  document.querySelectorAll('input[name="cfgService"]').forEach(function(r) {
+    r.checked = parseInt(r.value, 10) === price;
+  });
+
+  updatePopupServiceBtns();
 }
 
 // Order form submit

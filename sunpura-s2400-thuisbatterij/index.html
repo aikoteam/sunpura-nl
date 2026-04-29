@@ -1001,6 +1001,20 @@
           <img id="sumImg" src="/images/product-4-8kwh.png" alt="" style="width:100%; max-width:180px; border-radius:10px; display:block; margin:0 auto 16px;">
         </div>
         <div id="sumItems" style="font-size:14px; line-height:1.9; opacity:.85;"></div>
+        <div style="margin-top:14px;">
+          <div style="font-size:10px; text-transform:uppercase; letter-spacing:.08em; color:rgba(255,255,255,.32); margin-bottom:6px;">Service</div>
+          <div style="display:flex; flex-direction:column; gap:4px;">
+            <button type="button" class="popup-svc-btn" data-popup-svc="0" onclick="setPopupService(0,'Alleen levering')" style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 12px;font-size:13px;color:rgba(255,255,255,.82);cursor:pointer;width:100%;text-align:left;transition:background .15s,border-color .15s;">
+              <span>Alleen levering</span><span style="font-size:12px;opacity:.65;">gratis</span>
+            </button>
+            <button type="button" class="popup-svc-btn" data-popup-svc="99" onclick="setPopupService(99,'Levering + Installatie')" style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 12px;font-size:13px;color:rgba(255,255,255,.82);cursor:pointer;width:100%;text-align:left;transition:background .15s,border-color .15s;">
+              <span>Levering + Installatie</span><span style="font-size:12px;opacity:.65;">+€99</span>
+            </button>
+            <button type="button" class="popup-svc-btn" data-popup-svc="179" onclick="setPopupService(179,'Volledig ontzorgd')" style="display:flex;justify-content:space-between;align-items:center;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:8px;padding:8px 12px;font-size:13px;color:rgba(255,255,255,.82);cursor:pointer;width:100%;text-align:left;transition:background .15s,border-color .15s;">
+              <span>Volledig ontzorgd</span><span style="font-size:12px;opacity:.65;">+€179</span>
+            </button>
+          </div>
+        </div>
         <div style="border-top:1px solid rgba(255,255,255,.12); margin:18px 0;"></div>
         <div style="font-size:12px; opacity:.5; margin-bottom:4px;">Totaal incl. 21% BTW</div>
         <div class="order-sum-total-amount" id="sumTotal">€960</div>
