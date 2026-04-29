@@ -66,8 +66,8 @@ const configState = {
   modules: 'A2400 + 1× B2400',
   addons: [],
   giftCombo: 'standard',
-  servicePrice: 99,
-  serviceName: 'Levering + Installatie'
+  servicePrice: 0,
+  serviceName: 'Levering (gratis)'
 };
 
 function fmtPrice(n) {
