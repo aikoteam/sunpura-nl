@@ -1834,3 +1834,5 @@ body.cookie-open::before {
   .cookie-banner { padding: 24px; }
   .cookie-banner-btns { flex-direction: column-reverse; }
 }
+
+html.cookie-consent-set .cookie-banner { display: none; }
