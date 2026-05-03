@@ -729,7 +729,7 @@ section { padding: 80px 2rem; }
 .step-text { font-size: 13px; color: var(--grey); line-height: 1.5; }
 
 /* SPECS */
-#specs { background: var(--dark); color: var(--white); }
+#specs { background: var(--dark); color: var(--white); padding-bottom: 48px; }
 
 .specs-grid {
   display: grid;
@@ -1718,6 +1718,7 @@ footer {
   .steps { grid-template-columns: 1fr 1fr; gap: 32px; }
   .steps::before { display: none; }
   .specs-grid { grid-template-columns: 1fr; }
+  .specs-downloads { grid-template-columns: 1fr !important; }
   .order-wrapper { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .app-grid { grid-template-columns: 1fr; gap: 40px; }
