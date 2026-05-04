@@ -924,7 +924,7 @@
       <li>Voornaam en achternaam</li>
       <li>E-mailadres</li>
       <li>Telefoonnummer (optioneel)</li>
-      <li>Postcode en woonplaats</li>
+      <li>Straatnaam, huisnummer, postcode en woonplaats</li>
       <li>Gekozen pakket en serviceoptie</li>
       <li>Vrijwillig ingevulde opmerkingen</li>
     </ul>
@@ -1106,8 +1106,19 @@
           </div>
 
           <div class="form-group">
-            <label class="form-label" for="f-postcode">Postcode + Woonplaats *</label>
-            <input type="text" id="f-postcode" name="postcode_woonplaats" class="form-input" placeholder="5901 AB · Venlo" required autocomplete="postal-code">
+            <label class="form-label" for="f-straat">Straatnaam + huisnummer *</label>
+            <input type="text" id="f-straat" name="straat" class="form-input" placeholder="Voorbeeldstraat 12" required autocomplete="address-line1">
+          </div>
+
+          <div class="form-row" style="grid-template-columns: 2fr 3fr;">
+            <div class="form-group">
+              <label class="form-label" for="f-postcode">Postcode *</label>
+              <input type="text" id="f-postcode" name="postcode" class="form-input" placeholder="5901 AB" required autocomplete="postal-code">
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="f-woonplaats">Woonplaats *</label>
+              <input type="text" id="f-woonplaats" name="woonplaats" class="form-input" placeholder="Venlo" required autocomplete="address-level2">
+            </div>
           </div>
 
           <div class="form-group">
