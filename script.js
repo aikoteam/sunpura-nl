@@ -59,7 +59,7 @@ function toggleFaq(btn) {
 
 // ── CONFIGURATOR STATE ──────────────────────────────────────────
 const configState = {
-  price: 960,
+  price: 899,
   kwh: '2,4',
   img: '/images/product-2-4kwh.png',
   name: 'S2400 Basis',

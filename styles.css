@@ -1837,3 +1837,27 @@ body.cookie-open::before {
 }
 
 html.cookie-consent-set .cookie-banner { display: none; }
+
+/* ── PROMO BANNER ─────────────────────────────────────────────── */
+.promo-banner {
+  background: #e8610a;
+  color: #fff;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: 13.5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+.promo-banner-link {
+  color: #fff;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+.promo-banner-link:hover { opacity: .85; }
+.cap-btn small s {
+  opacity: .4;
+  font-size: .85em;
+  margin-right: 2px;
+  text-decoration: line-through;
+}
