@@ -1861,3 +1861,12 @@ html.cookie-consent-set .cookie-banner { display: none; }
   margin-right: 2px;
   text-decoration: line-through;
 }
+.config-price-old {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--muted);
+  font-family: var(--mono);
+  text-decoration: line-through;
+  opacity: .55;
+  letter-spacing: -0.01em;
+}

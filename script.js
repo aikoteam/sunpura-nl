@@ -60,6 +60,7 @@ function toggleFaq(btn) {
 // ── CONFIGURATOR STATE ──────────────────────────────────────────
 const configState = {
   price: 899,
+  oldPrice: 960,
   kwh: '2,4',
   img: '/images/product-2-4kwh.png',
   name: 'S2400 Basis',
@@ -81,8 +82,17 @@ function updateConfigTotal() {
   if (el) el.textContent = fmtPrice(total);
 
   const priceNew = document.getElementById('configPriceNew');
+  const priceOld = document.getElementById('configPriceOld');
   const prodName = document.getElementById('configProductName');
   if (priceNew) priceNew.textContent = fmtPrice(configState.price);
+  if (priceOld) {
+    if (configState.oldPrice) {
+      priceOld.textContent = fmtPrice(configState.oldPrice);
+      priceOld.style.display = '';
+    } else {
+      priceOld.style.display = 'none';
+    }
+  }
   if (prodName) prodName.textContent = 'Sunpura S2400 ' + configState.name.replace('S2400 ', '') + ' · ' + configState.kwh + ' kWh';
 }
 
@@ -108,8 +118,9 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
     document.querySelectorAll('.cap-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
 
-    configState.price   = parseInt(btn.dataset.price, 10);
-    configState.kwh     = btn.dataset.kwh;
+    configState.price    = parseInt(btn.dataset.price, 10);
+    configState.oldPrice = btn.dataset.oldPrice ? parseInt(btn.dataset.oldPrice, 10) : null;
+    configState.kwh      = btn.dataset.kwh;
     configState.name     = btn.dataset.name;
     configState.modules  = btn.dataset.modules;
 
