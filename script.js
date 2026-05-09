@@ -59,7 +59,7 @@ function toggleFaq(btn) {
 
 // ── CONFIGURATOR STATE ──────────────────────────────────────────
 const configState = {
-  price: 899,
+  price: 919,
   oldPrice: 960,
   kwh: '2,4',
   img: '/images/product-2-4kwh.png',
