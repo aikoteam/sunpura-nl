@@ -68,7 +68,7 @@ const configState = {
   addons: [],
   giftCombo: 'standard',
   servicePrice: 0,
-  serviceName: 'Alleen levering'
+  serviceName: 'Zelf installeren'
 };
 
 function fmtPrice(n) {
@@ -167,7 +167,7 @@ document.querySelectorAll('.cap-btn').forEach(function(btn) {
 document.querySelectorAll('input[name="cfgService"]').forEach(function(radio) {
   radio.addEventListener('change', function() {
     configState.servicePrice = parseInt(radio.value, 10);
-    const labels = { '0': 'Alleen levering', '99': 'Levering + Installatie', '179': 'Volledig ontzorgd' };
+    const labels = { '0': 'Zelf installeren', '99': 'Levering + Installatie', '179': 'Volledig ontzorgd' };
     configState.serviceName = labels[radio.value] || '';
     updateConfigTotal();
   });
